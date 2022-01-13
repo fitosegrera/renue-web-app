@@ -2,10 +2,10 @@
   //LIBS
   import { onMount, onDestroy } from "svelte";
   import { flip } from "svelte/animate";
+  import { spring } from "svelte/motion";
   import Icon from "@iconify/svelte";
 
   //COMPONENTS
-  import Paginator from "../../navigation/paginator.svelte";
   import Button from "../../buttons/md-primary-icon-outlined.svelte";
 
   //PROPS
@@ -27,18 +27,20 @@
   });
 
   const handleEnterLeft = () => {
-    let chevronLeft = document.getElementById("chevronLeft");
-    chevronLeft.src = "/assets/icons/chevron-left-hover.svg";
+    // let chevronLeft = document.getElementById("chevronLeft");
+    // chevronLeft.src = "/assets/icons/chevron-left-hover.svg";
+    toggle();
   };
 
   const handleLeaveLeft = () => {
-    let chevronLeft = document.getElementById("chevronLeft");
-    chevronLeft.src = "/assets/icons/chevron-left.svg";
+    // let chevronLeft = document.getElementById("chevronLeft");
+    // chevronLeft.src = "/assets/icons/chevron-left.svg";
   };
 
   const handleEnterRight = () => {
     let chevronRight = document.getElementById("chevronRight");
     chevronRight.src = "/assets/icons/chevron-right-hover.svg";
+    toggle();
   };
 
   const handleLeaveRight = () => {
@@ -92,6 +94,33 @@
   onDestroy(() => {
     stopAutoPlay();
   });
+
+  //ANIMATION
+  let isBooped = false;
+  let rotation = 5;
+  let timing = 200;
+
+  let springyRotation = spring(0, {
+    stiffness: 0.1,
+    damping: 0.15,
+  });
+
+  $: springyRotation.set(isBooped ? rotation : 0);
+
+  $: style = `
+		transform: rotate(${$springyRotation}deg)
+	`;
+
+  $: if (isBooped) {
+    setTimeout(() => {
+      isBooped = false;
+    }, timing);
+  }
+
+  const toggle = () => {
+    isBooped = true;
+    console.log("boop");
+  };
 </script>
 
 <div id="carousel-container">
@@ -140,14 +169,12 @@
       <button id="left" on:click={rotateLeft}>
         <slot name="left-control">
           <!-- <div class="xl:w-48 lg:w-56 md:w-120 sm:w-96"> -->
-          <div class="w-32 h-full">
-            <img
-              id="chevronLeft"
-              src="/assets/icons/chevron-left.svg"
-              alt=""
-              on:mouseenter={handleEnterLeft}
-              on:mouseleave={handleLeaveLeft}
-            />
+          <div
+            on:mouseenter={handleEnterLeft}
+            on:mouseleave={handleLeaveLeft}
+            class="w-full h-full text-6xl text-primary-main transition ease-in-out hover:text-secondary-main duration-600"
+          >
+            <Icon {style} icon="bx:bx-chevron-left" />
           </div>
         </slot>
       </button>
@@ -155,14 +182,12 @@
     <div id="control-wrapper-right" class="mx-1">
       <button id="right" on:click={rotateRight}>
         <slot name="right-control">
-          <div class="w-32 h-full">
-            <img
-              id="chevronRight"
-              src="/assets/icons/chevron-right.svg"
-              alt=""
-              on:mouseenter={handleEnterRight}
-              on:mouseleave={handleLeaveRight}
-            />
+          <div
+            on:mouseenter={handleEnterLeft}
+            on:mouseleave={handleLeaveLeft}
+            class="w-full h-full text-6xl text-primary-main transition ease-in-out hover:text-secondary-main duration-600"
+          >
+            <Icon {style} icon="bx:bx-chevron-right" />
           </div>
         </slot>
       </button>
