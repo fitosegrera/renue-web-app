@@ -1,0 +1,68 @@
+*,
+html,
+body {
+  overflow-x: hidden;
+  font-family: "Mulish", sans-serif;
+}
+
+.gradient-blue-to-green-light {
+  background: linear-gradient(90deg, rgb(0, 225, 255), rgb(123, 255, 61));
+}
+
+.gradient-blue-to-green-light-diagonal {
+  background: linear-gradient(45deg, rgb(82, 235, 255), rgb(168, 255, 128));
+}
+
+.gradient-bg-dark-secondary {
+  background: linear-gradient(180deg, #e1f1f5ec, #032027 20%);
+}
+
+.gradient-bg-semidark-secondary {
+  background: linear-gradient(180deg, #032027, #3fc4e5 200%);
+}
+
+.gradient-bg-secondary-main {
+  background: linear-gradient(180deg, #6498a5 #063b48 200%);
+}
+
+.gradient-bg-secondary-main {
+  background: linear-gradient(45deg, #6498a5, #063b48);
+}
+
+.gradient-text-blue-to-green-vertical {
+  cursor: pointer;
+  background: -webkit-linear-gradient(rgb(229, 243, 245), rgb(235, 255, 226));
+  -webkit-background-clip: text;
+  -webkit-text-fill-color: transparent;
+}
+
+.gradient-text-blue-to-green-vertical:hover {
+  cursor: pointer;
+  background: -webkit-linear-gradient(rgb(82, 235, 255), rgb(168, 255, 128));
+  -webkit-background-clip: text;
+  -webkit-text-fill-color: transparent;
+}
+
+.gradient-text-light {
+  background: -webkit-linear-gradient(#baf1ff, #e2ffa5);
+  -webkit-background-clip: text;
+  -webkit-text-fill-color: transparent;
+}
+
+.gradient-text-dark {
+  background: -webkit-linear-gradient(#1d6172, #4a6907);
+  -webkit-background-clip: text;
+  -webkit-text-fill-color: transparent;
+}
+
+/*ANIMATIONS*/
+@keyframes -global-scale-in-center {
+  0% {
+    transform: rotateX(50deg) translateX(-200vw) skewX(-50deg);
+    opacity: 1;
+  }
+  100% {
+    transform: rotateX(0deg) translateX(0) skewX(0deg);
+    opacity: 1;
+  }
+}
