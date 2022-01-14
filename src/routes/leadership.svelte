@@ -10,6 +10,7 @@
   import Section1 from "../components/sections/leadership/section-1.svelte";
   import Section2 from "../components/sections/leadership/section-2.svelte";
   import Section3 from "../components/sections/leadership/section-3.svelte";
+  import Section4 from "../components/sections/leadership/section-4.svelte";
   import ContactSection from "../components/sections/who-we-are/contact-section.svelte";
 
   //COMPONENTS
@@ -41,6 +42,7 @@
     let section_2_title = "";
     let section_3_data = [];
     let section_3_title = "";
+    let section_4_data = {};
     let contact_data = {};
 
     await data.results.forEach((result, i) => {
@@ -63,8 +65,6 @@
 
           if (section.slice_type === "section-2") {
             section.items.forEach((item, i) => {
-              console.log(section);
-              console.log(item);
               let tmp = {};
               if (i == 0) {
                 tmp.visible = true;
@@ -106,6 +106,12 @@
             section_3_title = section.primary["title-bio-card"][0].text;
           }
 
+          if (section.slice_type === "section-4") {
+            //console.log(section);
+            section_4_data.headline = section.primary.headline[0].text;
+            section_4_data.image_url = section.primary["background-image"].url;
+          }
+
           if (section.slice_type === "contact-section") {
             //console.log(section);
             contact_data.headline = section.primary.headline[0].text;
@@ -136,6 +142,7 @@
         title: section_3_title,
         section_3_data,
       },
+      section4: section_4_data,
       contact: {
         headline: contact_data.headline,
         start: contact_data.start,
@@ -148,7 +155,7 @@
   };
 
   let heroData;
-  let section1Data, section2Data, section3Data;
+  let section1Data, section2Data, section3Data, section4Data;
   let contactData;
 
   onMount(async () => {
@@ -157,6 +164,7 @@
       section1Data = await data.section1;
       section2Data = await data.section2;
       section3Data = await data.section3;
+      section4Data = await data.section4;
       contactData = await data.contact;
     });
   });
@@ -200,12 +208,20 @@
   {/if}
 {/await}
 
-<SpacerLine />
-<!-- 
+<!-- <SpacerLine /> -->
+
+{#await section4Data}
+  <h1 class="text-secondary text-8xl mt-72">Loading...</h1>
+{:then data}
+  {#if data !== undefined}
+    <Section4 contents={data} />
+  {/if}
+{/await}
+
 {#await contactData}
   <h1 class="text-secondary text-8xl mt-72">Loading...</h1>
 {:then data}
   {#if data !== undefined}
     <ContactSection {data} />
   {/if}
-{/await} -->
+{/await}

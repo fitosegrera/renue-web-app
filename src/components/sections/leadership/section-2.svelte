@@ -10,7 +10,7 @@
 
   //PROPS
   export let contents;
-  console.log("contents.", contents.section_2_data);
+  //console.log("contents.", contents.section_2_data);
 </script>
 
 <div

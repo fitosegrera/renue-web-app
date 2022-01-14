@@ -2,6 +2,7 @@
   //COMPONENTS
   import HeroSecondary from "../../hero/hero-secondary.svelte";
 
+  //PROPS
   export let contents;
 </script>
 

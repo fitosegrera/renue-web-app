@@ -10,7 +10,7 @@
 
   //PROPS
   export let contents;
-  console.log("contents.", contents);
+  // console.log("contents.", contents);
 </script>
 
 <div

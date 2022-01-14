@@ -1,11 +1,13 @@
 <script>
   //LIBS
   import { onMount } from "svelte";
-  import { fly } from "svelte/transition";
+  import { fly, scale } from "svelte/transition";
   import Icon from "@iconify/svelte";
 
   //PROPS
   export let contents;
+
+  let y;
 
   onMount(async () => {
     await contents.forEach((item, i) => {
@@ -38,8 +40,8 @@
   };
 
   const handleMouseLeave = async (item) => {
-    let highlight = document.getElementById(item);
-    highlight.style.visibility = "hidden";
+    // let highlight = document.getElementById(item);
+    // highlight.style.visibility = "hidden";
   };
 </script>
 
@@ -55,11 +57,18 @@
           on:mouseenter={() => handleMouseEnter(item.id)}
           on:mouseleave={() => handleMouseLeave(item.id)}
         >
-          <div
-            id={item.id}
-            class="w-16 h-64 gradient-blue-to-green-light-diagonal"
-          />
-          <h1 class="gradient-text-blue-to-green-vertical">{item.label}</h1>
+          {#if item.visible}
+            <div
+              id={item.id}
+              class="absolute w-16 h-64 gradient-blue-to-green-light-diagonal"
+              transition:scale={{ start: 0.1, duration: 300 }}
+            />
+          {:else}
+            <div id={item.id} class="absolute w-16 h-64 bg-transparent" />
+          {/if}
+          <h1 class="px-16 gradient-text-blue-to-green-vertical">
+            {item.label}
+          </h1>
         </div>
       {/each}
     </div>
@@ -78,7 +87,7 @@
           >
             <div
               id="title"
-              class="flex items-center text-xl text-primary-light w-full px-120 space-x-12"
+              class="flex items-center text-xl text-on-background-variant w-full px-120 space-x-12"
             >
               <Icon icon="gridicons:share-computer" />
               <h1 class="text-xl font-bold text-on-background-variant">

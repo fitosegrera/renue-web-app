@@ -148,6 +148,7 @@ module.exports = {
         "5xl": "72px",
         "4xl": "64px",
         "3xl": "56px",
+        lg: "52px",
         md: "32px",
       },
     },
