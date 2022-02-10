@@ -3,10 +3,15 @@
 
   //LIBS
 
+  //CONTAINERS
+  import ThreejsContainer from "../components/containers/threejs.svelte";
+
   //COMPONENTS
   import ThreejsViewer from "../components/widgets/threejs/threejs-viewer.svelte";
 
   //SECTIONS
 </script>
 
-<!-- <ThreejsViewer /> -->
+<ThreejsContainer>
+  <ThreejsViewer />
+</ThreejsContainer>

@@ -1,75 +1,123 @@
-import * as THREE from 'three';
-import { OrbitControls } from 'three/examples/jsm/controls/OrbitControls';
-import { GLTFLoader } from 'three/examples/jsm/loaders/GLTFLoader';
+import * as THREE from "three";
+import { OrbitControls } from "three/examples/jsm/controls/OrbitControls";
+import { FBXLoader } from "three/examples/jsm/loaders/FBXLoader";
+
+let camera = new THREE.PerspectiveCamera(
+  45,
+  window.innerWidth / window.innerHeight,
+  1,
+  2000
+);
+camera.position.set(75, 250, 900);
+camera.rotation.y = -Math.PI / 1010;
 
 const scene = new THREE.Scene();
-const camera = new THREE.PerspectiveCamera(75, window.innerWidth / window.innerHeight, 0.1, 1000);
-const geometry = new THREE.BoxGeometry();
-const material = new THREE.MeshStandardMaterial({
-	color: 0xcccccc,
-	roughness: 0.2,
-	metalness: 0.5,
-	normalScale: new THREE.Vector2(1, -1), // why does the normal map require negation in this case?
-	side: THREE.DoubleSide
-});
-var light = new THREE.HemisphereLight(0x404040, 0xffffff, 0.5);
-const cube = new THREE.Mesh(geometry, material);
-const loader = new GLTFLoader();
+// scene.background = new THREE.Color(0xa0a0a0);
+scene.fog = new THREE.FogExp2(0xfdffff, 0.00045);
+
+const hemiLight = new THREE.HemisphereLight(0xffffff, 0x444444);
+hemiLight.position.set(0, 200, 0);
+scene.add(hemiLight);
+
+const dirLight = new THREE.DirectionalLight(0xffffff);
+dirLight.position.set(0, 200, 100);
+dirLight.castShadow = true;
+dirLight.shadow.camera.top = 180;
+dirLight.shadow.camera.bottom = -100;
+dirLight.shadow.camera.left = -120;
+dirLight.shadow.camera.right = 120;
+scene.add(dirLight);
+
+const loader = new FBXLoader();
 
 let renderer;
 let controls;
-let loading;
-
-scene.add(light);
-// scene.add(cube);
-camera.position.z = 5;
 
 const loadModel = () => {
-	loader.load(
-		// resource URL
-		'assets/planta.gltf',
-		// called when the resource is loaded
-		(gltf) => {
-			scene.add(gltf.scene);
-			gltf.animations; // Array<THREE.AnimationClip>
-			gltf.scene; // THREE.Group
-			gltf.scenes; // Array<THREE.Group>
-			gltf.cameras; // Array<THREE.Camera>
-			gltf.asset; // Object
-		},
-		// called while loading is progressing
-		(xhr) => {
-			console.log((xhr.loaded / xhr.total) * 100 + '% loaded');
-			loading = (xhr.loaded / xhr.total) * 100;
-		},
-		// called when loading has errors
-		(error) => {
-			console.log('An error happened');
-		}
-	);
+  loader.load(
+    "assets/planta.fbx",
+    (object) => {
+      object.traverse((child) => {
+        if (child.isMesh) {
+          child.castShadow = true;
+          child.receiveShadow = true;
+        }
+      });
+      scene.add(object);
+    },
+    (xhr) => {
+      let loaded = Math.floor((xhr.loaded / xhr.total) * 100);
+      console.log(loaded + "% loaded");
+      let loader = document.getElementById("loader");
+      loader.innerHTML = loaded + "%";
+      if (loaded >= 100) {
+        console.log("model loaded!");
+        loader.style.visibility = "hidden";
+      }
+    }
+  );
 };
 
+//Background
+let textureEquirec;
+
+const textureLoader = new THREE.TextureLoader();
+
+textureEquirec = textureLoader.load("assets/background.jpg");
+textureEquirec.mapping = THREE.EquirectangularReflectionMapping;
+textureEquirec.encoding = THREE.sRGBEncoding;
+
+//scene.background = textureEquirec;
+
+// CUBE MODEL
+const geometry = new THREE.IcosahedronGeometry(100, 15);
+const sphereMaterial = new THREE.MeshLambertMaterial({
+  envMap: textureEquirec,
+});
+const sphereMesh = new THREE.Mesh(geometry, sphereMaterial);
+//scene.add(sphereMesh);
+
+// ground
+const mesh = new THREE.Mesh(
+  new THREE.PlaneGeometry(4000, 4000),
+  new THREE.MeshLambertMaterial({
+    envMap: textureEquirec,
+  })
+);
+mesh.rotation.x = -Math.PI / 2;
+mesh.receiveShadow = true;
+// mesh.position.y = 2.5;
+//scene.add(mesh);
+
+// const grid = new THREE.GridHelper(2000, 20, 0x000000, 0x000000);
+// grid.material.opacity = 0.2;
+// grid.material.transparent = true;
+// grid.position.y = 2.5;
+// scene.add(grid);
+
 const animate = () => {
-	requestAnimationFrame(animate);
-	cube.rotation.x += 0.01;
-	cube.rotation.y += 0.01;
-	renderer.render(scene, camera);
+  requestAnimationFrame(animate);
+  renderer.render(scene, camera);
 };
 
 const resize = () => {
-	renderer.setSize(window.innerWidth, window.innerHeight);
-	camera.aspect = window.innerWidth / window.innerHeight;
-	camera.updateProjectionMatrix();
+  renderer.setSize(window.innerWidth, window.innerHeight);
+  camera.aspect = window.innerWidth / window.innerHeight;
+  camera.updateProjectionMatrix();
 };
 
 export const createScene = (e) => {
-	renderer = new THREE.WebGLRenderer({ antialias: true, canvas: e, alpha: false });
-	renderer.setPixelRatio(window.devicePixelRatio);
-	renderer.setClearColor(0xffffff, 1);
-	controls = new OrbitControls(camera, renderer.domElement);
-	loadModel();
-	resize();
-	animate();
+  renderer = new THREE.WebGLRenderer({
+    antialias: true,
+    canvas: e,
+    alpha: true,
+  });
+  renderer.setPixelRatio(window.devicePixelRatio);
+  // renderer.setClearColor("#50ABC7", 1);
+  controls = new OrbitControls(camera, renderer.domElement);
+  loadModel();
+  resize();
+  animate();
 };
 
-window.addEventListener('resize', resize);
+window.addEventListener("resize", resize);

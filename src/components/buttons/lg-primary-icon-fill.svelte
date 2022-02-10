@@ -5,7 +5,7 @@
   import { spring } from "svelte/motion";
 
   //PROPS
-  export let icon_label, label, url;
+  export let icon_label, label, url, type;
 
   let isBooped = false;
   let rotation = 10;
@@ -37,6 +37,7 @@
 
 <a href={url}>
   <button
+    {type}
     on:mouseenter={toggle}
     on:mouseleave={toggle}
     class="flex items-center px-32 space-x-16 w-268 h-72 text-on-background-variant font-bold rounded-md bg-primary-main transition ease-in-out hover:bg-secondary-main duration-500"

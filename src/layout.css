@@ -9,8 +9,16 @@ body {
   background: linear-gradient(90deg, rgb(0, 225, 255), rgb(123, 255, 61));
 }
 
+.gradient-blue-to-green-light-vertical {
+  background: linear-gradient(0deg, rgb(186, 253, 153), rgb(205, 249, 255));
+}
+
 .gradient-blue-to-green-light-diagonal {
-  background: linear-gradient(45deg, rgb(82, 235, 255), rgb(168, 255, 128));
+  background: linear-gradient(
+    45deg,
+    rgba(82, 235, 255, 0.692),
+    rgba(168, 255, 128, 0.719)
+  );
 }
 
 .gradient-bg-dark-secondary {
@@ -22,7 +30,7 @@ body {
 }
 
 .gradient-bg-secondary-main {
-  background: linear-gradient(180deg, #6498a5 #063b48 200%);
+  background: linear-gradient(0deg, #6498a5 #063b48 200%);
 }
 
 .gradient-bg-secondary-main {

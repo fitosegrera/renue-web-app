@@ -6,6 +6,8 @@ const primaryDark = "#2D3B0F";
 const primaryDarkAlpha = "#2D3B0F55";
 const secondaryMain = "#00BCEA";
 const secondaryDark = "#122C32";
+const secondaryVariant = "#547680";
+const secondaryVariantLight = "#638791";
 const secondaryDarkAlpha = "#122C32ee";
 const tertiaryMain = "#C1C1C1";
 const backgroundLight = "#FFFFFF";
@@ -39,6 +41,7 @@ module.exports = {
       "primary-dark": primaryDark,
       "secondary-main": secondaryMain,
       "secondary-dark": secondaryDark,
+      "secondary-variant": secondaryVariant,
       "secondary-dark-alpha": secondaryDarkAlpha,
       "tertiary-main": tertiaryMain,
       "on-background-variant": onBackgroundVariant,
@@ -51,6 +54,8 @@ module.exports = {
       "primary-light": primaryLight,
       "secondary-main": secondaryMain,
       "secondary-dark": secondaryDark,
+      "secondary-variant": secondaryVariant,
+      "secondary-variant-light": secondaryVariantLight,
       "secondary-dark-alpha": secondaryDarkAlpha,
       "tertiary-main": tertiaryMain,
       "background-light": backgroundLight,
@@ -60,6 +65,7 @@ module.exports = {
       danger: danger,
     },
     spacing: {
+      thin: "1px",
       1: "1%",
       2: "2%",
       4: "4px",
@@ -69,7 +75,9 @@ module.exports = {
       16: "16px",
       24: "24px",
       25: "25%",
+      30: "30%",
       32: "32px",
+      35: "35%",
       40: "40px",
       48: "48px",
       50: "50%",
@@ -87,6 +95,7 @@ module.exports = {
       200: "200px",
       240: "240px",
       256: "256px",
+      280: "280px",
       292: "292px",
       320: "320px",
       360: "360px",

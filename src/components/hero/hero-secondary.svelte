@@ -3,7 +3,7 @@
   import { onMount } from "svelte";
 
   //PROPS
-  export let headline, paragraph, image_url;
+  export let headline, paragraph, image_url, start, end;
 
   onMount(async () => {
     let root = document.documentElement;
@@ -31,9 +31,21 @@
             </h1>
           </div>
           <div class="lg:w-720 sm:w-520">
-            <h2 class="text-lg leading-md mt-16">
-              {paragraph}
-            </h2>
+            {#if start != undefined}
+              <h2 class="text-lg leading-md mt-16">
+                {paragraph.substring(0, start)}
+                <a
+                  href="mailto:cnieto@renueenviro.com"
+                  class="text-primary-main font-bold"
+                >
+                  {paragraph.substring(start, end)}
+                </a>
+              </h2>
+            {:else}
+              <h2 class="text-lg leading-md mt-16">
+                {paragraph}
+              </h2>
+            {/if}
           </div>
         </div>
       </div>
