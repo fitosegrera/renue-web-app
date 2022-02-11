@@ -10,10 +10,6 @@
 </script>
 
 <canvas bind:this={e} />
-<div
-  id="loader"
-  class="flex w-full h-full items-center justify-center text-4xl text-secondary-dark"
-/>
 
 <style>
   div {

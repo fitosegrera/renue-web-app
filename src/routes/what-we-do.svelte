@@ -10,6 +10,7 @@
 
   //SECTIONS
   import HeroSection from "../components/sections/what-we-do/hero-section.svelte";
+  import Section2 from "../components/sections/what-we-do/section-2.svelte";
   import Section4 from "../components/sections/what-we-do/section-4.svelte";
 
   let heroData;
@@ -91,6 +92,16 @@
     <HeroSection contents={data} />
   {/if}
 {/await}
+
+<!-- {#await section2Data}
+  <h1 class="text-secondary text-8xl mt-72">Loading...</h1>
+{:then data}
+  {#if data !== undefined}
+    <Section2 contents={data} />
+  {/if}
+{/await} -->
+
+<Section2 />
 
 {#await section4Data}
   <h1 class="text-secondary text-8xl mt-72">Loading...</h1>

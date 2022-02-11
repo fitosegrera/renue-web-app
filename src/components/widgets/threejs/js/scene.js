@@ -49,10 +49,12 @@ const loadModel = () => {
       let loaded = Math.floor((xhr.loaded / xhr.total) * 100);
       console.log(loaded + "% loaded");
       let loader = document.getElementById("loader");
-      loader.innerHTML = loaded + "%";
+      loader.innerHTML = "Loading model: " + loaded + "%";
       if (loaded >= 100) {
         console.log("model loaded!");
-        loader.style.visibility = "hidden";
+        loader.innerHTML = "Model loaded!";
+        document.getElementById("ok-button").style.visibility = "visible";
+        // loader.style.visibility = "hidden";
       }
     }
   );
