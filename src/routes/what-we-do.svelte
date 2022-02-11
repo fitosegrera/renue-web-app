@@ -10,11 +10,12 @@
 
   //SECTIONS
   import HeroSection from "../components/sections/what-we-do/hero-section.svelte";
+  import Section1 from "../components/sections/what-we-do/section-1.svelte";
   import Section2 from "../components/sections/what-we-do/section-2.svelte";
   import Section4 from "../components/sections/what-we-do/section-4.svelte";
 
   let heroData;
-  let section4Data;
+  let section1Data, section4Data;
 
   const fetchRefs = async (url) => {
     const res = await fetch(url);
@@ -77,6 +78,10 @@
 
   fetchData($cms_url, async (data) => {
     heroData = await data.hero;
+    section1Data = {
+      headline:
+        "We have a closed loop process with 90% heat recovery that produces 700 gallons of clean fuels or Lube oil base for every 1000 gallons of waste of waste oil. Our plant has the flexibility to process any high viscosity waste oil product such as: used lube oil bottoms, bunker slops, Asphalt Flux, Asphalt Extender, and off spec fuels oils.",
+    };
     section4Data = await data.section4;
   });
 </script>
@@ -92,6 +97,8 @@
     <HeroSection contents={data} />
   {/if}
 {/await}
+
+<Section1 contents={section1Data} />
 
 <!-- {#await section2Data}
   <h1 class="text-secondary text-8xl mt-72">Loading...</h1>

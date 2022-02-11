@@ -8,7 +8,7 @@ let camera = new THREE.PerspectiveCamera(
   1,
   2000
 );
-camera.position.set(75, 250, 900);
+camera.position.set(15, 450, 1100);
 camera.rotation.y = -Math.PI / 1010;
 
 const scene = new THREE.Scene();
@@ -43,6 +43,7 @@ const loadModel = () => {
           child.receiveShadow = true;
         }
       });
+      //object.position
       scene.add(object);
     },
     (xhr) => {
@@ -54,7 +55,8 @@ const loadModel = () => {
         console.log("model loaded!");
         loader.innerHTML = "Model loaded!";
         document.getElementById("ok-button").style.visibility = "visible";
-        // loader.style.visibility = "hidden";
+        document.getElementById("loaded-icon").style.visibility = "visible";
+        document.getElementById("loading-icon").style.visibility = "hidden";
       }
     }
   );
@@ -100,6 +102,7 @@ mesh.receiveShadow = true;
 const animate = () => {
   requestAnimationFrame(animate);
   renderer.render(scene, camera);
+  // console.log(camera);
 };
 
 const resize = () => {

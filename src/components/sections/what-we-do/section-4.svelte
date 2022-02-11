@@ -18,12 +18,14 @@
     document.getElementById("blocker").style.visibility = "hidden";
     document.getElementById("ok-button").style.visibility = "hidden";
     document.getElementById("back-button").style.visibility = "visible";
+    document.getElementById("loaded-icon").style.visibility = "hidden";
   };
 
   const handleBackClick = () => {
     document.getElementById("blocker").style.visibility = "visible";
     document.getElementById("ok-button").style.visibility = "visible";
     document.getElementById("back-button").style.visibility = "hidden";
+    document.getElementById("loaded-icon").style.visibility = "visible";
   };
 </script>
 
@@ -39,12 +41,26 @@
     </div>
 
     <div
-      class="flex flex-col items-center justify-center w-full h-50 mx-auto space-x-32 py-32"
+      class="flex flex-col items-center w-full h-520 mx-auto space-x-32 py-32"
     >
-      <div class="w-96 h-96 mt-32" id="image-container" />
+      <!-- <div class="flex items-center w-full h-240 mt-32" id="image-container" /> -->
+      <div class="relative w-full h-full my-48">
+        <div
+          id="loaded-icon"
+          class="flex w-full h-full justify-center text-4xl text-primary-light"
+        >
+          <Icon icon="el:ok-circle" />
+        </div>
+        <div
+          id="loading-icon"
+          class="flex w-full h-full justify-center text-4xl text-primary-light"
+        >
+          <Icon icon="eos-icons:bubble-loading" />
+        </div>
+      </div>
       <div
         id="loader"
-        class="flex w-full text-lg justify-center text-on-background-variant"
+        class="flex w-full h-full text-lg justify-center text-on-background-variant"
       />
     </div>
     <div class="w-full h-full mx-auto text-center text-on-background-variant">
@@ -53,9 +69,15 @@
       </div>
       <div class="flex items-center justify-center space-x-12 mt-48">
         <div class="text-primary-light text-lg">
+          <Icon icon="mdi:rotate-3d" />
+        </div>
+        <p class="text-lg">Left click and drag to rotate.</p>
+      </div>
+      <div class="flex items-center justify-center space-x-12">
+        <div class="text-primary-light text-lg">
           <Icon icon="ri:drag-move-2-fill" />
         </div>
-        <p class="text-lg">Left click to drag, right click to rotate.</p>
+        <p class="text-lg">Right click to pan.</p>
       </div>
       <div class="flex items-center justify-center space-x-12">
         <div class="text-primary-light text-lg">
@@ -92,15 +114,21 @@
     margin: 0 !important;
   }
 
+  #loading-icon {
+    position: absolute;
+    visibility: visible;
+    margin: 0 !important;
+  }
+
+  #loaded-icon {
+    position: absolute;
+    visibility: hidden;
+    margin: 0 !important;
+  }
+
   #blocker {
     position: absolute;
     background: linear-gradient(15deg, #184550e1, #022129);
-  }
-
-  #image-container {
-    background-image: url("/assets/icons/3d.png");
-    background-repeat: no-repeat;
-    background-size: contain;
   }
 
   #ok-button {
