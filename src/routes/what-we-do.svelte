@@ -15,7 +15,7 @@
   import Section4 from "../components/sections/what-we-do/section-4.svelte";
 
   let heroData;
-  let section1Data, section4Data;
+  let section1Data, section2Data, section3Data, section4Data;
 
   const fetchRefs = async (url) => {
     const res = await fetch(url);
@@ -37,12 +37,15 @@
     //console.log(data);
 
     let hero_data = {};
+    let section_1_data = {};
+    let section_2_data = {};
+    let section_3_data = {};
     let section_4_data = {};
 
     data.results.forEach((result, i) => {
       //console.log(index, result.uid);
       if (result.uid === "what-we-do") {
-        //console.log(result.data.body);
+        console.log(result.data.body);
         result.data.body.forEach((section, j) => {
           if (section.slice_type === "hero-section") {
             //console.log(section.primary);
@@ -51,8 +54,24 @@
             hero_data.paragraph = section.primary.paragraph[0].text;
           }
 
+          if (section.slice_type === "section-3") {
+            //This registered as section-3 on PRISMIC, but it is actually section-1
+            section_1_data.headline = section.primary.headline[0].text;
+          }
+
+          if (section.slice_type === "section-2") {
+            console.log("section-2", section);
+            // section_1_data.headline = section.primary.headline[0].text;
+          }
+
+          if (section.slice_type === "section-31") {
+            //This registered as section-31 on PRISMIC, but its actually section-3
+            console.log("section-3", section);
+            // section_1_data.headline = section.primary.headline[0].text;
+          }
+
           if (section.slice_type === "section-4") {
-            console.log(section.primary);
+            console.log("section-4", section);
             section_4_data.headline = section.primary.headline[0].text;
             section_4_data.instructions = section.primary.instructions;
           }
@@ -68,6 +87,9 @@
         headline: hero_data.headline,
         paragraph: hero_data.paragraph,
       },
+      section1: {
+        headline: section_1_data.headline,
+      },
       section4: {
         headline: section_4_data.headline,
         instructions: section_4_data.instructions,
@@ -78,10 +100,7 @@
 
   fetchData($cms_url, async (data) => {
     heroData = await data.hero;
-    section1Data = {
-      headline:
-        "We have a closed loop process with 90% heat recovery that produces 700 gallons of clean fuels or Lube oil base for every 1000 gallons of waste of waste oil. Our plant has the flexibility to process any high viscosity waste oil product such as: used lube oil bottoms, bunker slops, Asphalt Flux, Asphalt Extender, and off spec fuels oils.",
-    };
+    section1Data = await data.section1;
     section4Data = await data.section4;
   });
 </script>
@@ -98,15 +117,13 @@
   {/if}
 {/await}
 
-<Section1 contents={section1Data} />
-
-<!-- {#await section2Data}
+{#await section1Data}
   <h1 class="text-secondary text-8xl mt-72">Loading...</h1>
 {:then data}
   {#if data !== undefined}
-    <Section2 contents={data} />
+    <Section1 contents={data} />
   {/if}
-{/await} -->
+{/await}
 
 <Section2 />
 

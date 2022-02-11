@@ -35,8 +35,7 @@
       <h1
         class="text-2xl leading-11 text-center font-semibold text-on-background-variant "
       >
-        Our process produces recycled purified oil suitable for use as fuel oil,
-        industrial grease or in the preparation of lubricant motor oils.
+        {contents.headline}
       </h1>
     </div>
 
@@ -65,25 +64,25 @@
     </div>
     <div class="w-full h-full mx-auto text-center text-on-background-variant">
       <div>
-        <h2 class="text-2xl font-semibold">Explore our plant virtually.</h2>
+        <h2 class="text-2xl font-semibold">{contents.instructions[0].text}</h2>
       </div>
       <div class="flex items-center justify-center space-x-12 mt-48">
         <div class="text-primary-light text-lg">
           <Icon icon="mdi:rotate-3d" />
         </div>
-        <p class="text-lg">Left click and drag to rotate.</p>
+        <p class="text-lg">{contents.instructions[1].text}</p>
       </div>
       <div class="flex items-center justify-center space-x-12">
         <div class="text-primary-light text-lg">
           <Icon icon="ri:drag-move-2-fill" />
         </div>
-        <p class="text-lg">Right click to pan.</p>
+        <p class="text-lg">{contents.instructions[2].text}</p>
       </div>
       <div class="flex items-center justify-center space-x-12">
         <div class="text-primary-light text-lg">
           <Icon icon="iconoir:mouse-scroll-wheel" />
         </div>
-        <p class="text-lg">Mouse scroll to zoom in and out.</p>
+        <p class="text-lg">{contents.instructions[3].text}</p>
       </div>
       <div
         on:click={handleOkClick}

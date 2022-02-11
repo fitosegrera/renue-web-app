@@ -48,7 +48,7 @@ const loadModel = () => {
     },
     (xhr) => {
       let loaded = Math.floor((xhr.loaded / xhr.total) * 100);
-      console.log(loaded + "% loaded");
+      // console.log(loaded + "% loaded");
       let loader = document.getElementById("loader");
       loader.innerHTML = "Loading model: " + loaded + "%";
       if (loaded >= 100) {
