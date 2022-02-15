@@ -12,7 +12,9 @@
   import HeroSection from "../components/sections/what-we-do/hero-section.svelte";
   import Section1 from "../components/sections/what-we-do/section-1.svelte";
   import Section2 from "../components/sections/what-we-do/section-2.svelte";
+  import Section3 from "../components/sections/what-we-do/section-3.svelte";
   import Section4 from "../components/sections/what-we-do/section-4.svelte";
+  import ContactSection from "../components/sections/what-we-do/contact-section.svelte";
 
   let heroData;
   let section1Data, section2Data, section3Data, section4Data;
@@ -38,15 +40,15 @@
 
     let hero_data = {};
     let section_1_data = {};
-    let section_2_data = {};
+    let section_2_data = [];
     let section_3_data = {};
     let section_4_data = {};
 
-    data.results.forEach((result, i) => {
+    await data.results.forEach(async (result, i) => {
       //console.log(index, result.uid);
       if (result.uid === "what-we-do") {
-        console.log(result.data.body);
-        result.data.body.forEach((section, j) => {
+        //console.log(result.data.body);
+        await result.data.body.forEach(async (section, j) => {
           if (section.slice_type === "hero-section") {
             //console.log(section.primary);
             hero_data.imageUrl = section.primary.image.url;
@@ -60,18 +62,23 @@
           }
 
           if (section.slice_type === "section-2") {
-            console.log("section-2", section);
+            //console.log("section-2", section.items);
             // section_1_data.headline = section.primary.headline[0].text;
+
+            await section.items.forEach((item, j) => {
+              // console.log("ITEM", item);
+              section_2_data.push(item);
+            });
           }
 
           if (section.slice_type === "section-31") {
             //This registered as section-31 on PRISMIC, but its actually section-3
-            console.log("section-3", section);
+            //console.log("section-3", section);
             // section_1_data.headline = section.primary.headline[0].text;
           }
 
           if (section.slice_type === "section-4") {
-            console.log("section-4", section);
+            //console.log("section-4", section);
             section_4_data.headline = section.primary.headline[0].text;
             section_4_data.instructions = section.primary.instructions;
           }
@@ -90,6 +97,7 @@
       section1: {
         headline: section_1_data.headline,
       },
+      section2: section_2_data,
       section4: {
         headline: section_4_data.headline,
         instructions: section_4_data.instructions,
@@ -101,6 +109,7 @@
   fetchData($cms_url, async (data) => {
     heroData = await data.hero;
     section1Data = await data.section1;
+    section2Data = await data.section2;
     section4Data = await data.section4;
   });
 </script>
@@ -125,7 +134,15 @@
   {/if}
 {/await}
 
-<Section2 />
+{#await section2Data}
+  <h1 class="text-secondary text-8xl mt-72">Loading...</h1>
+{:then data}
+  {#if data !== undefined}
+    <Section2 contents={data} />
+  {/if}
+{/await}
+
+<Section3 />
 
 {#await section4Data}
   <h1 class="text-secondary text-8xl mt-72">Loading...</h1>
@@ -134,3 +151,5 @@
     <Section4 contents={data} />
   {/if}
 {/await}
+
+<!-- <ContactSection /> -->

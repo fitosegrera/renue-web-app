@@ -161,6 +161,7 @@ module.exports = {
         "3xl": "56px",
         lg: "52px",
         md: "32px",
+        sm: "30px",
       },
     },
   },
