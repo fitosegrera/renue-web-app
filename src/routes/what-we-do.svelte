@@ -16,8 +16,15 @@
   import Section4 from "../components/sections/what-we-do/section-4.svelte";
   import ContactSection from "../components/sections/what-we-do/contact-section.svelte";
 
-  let heroData;
+  let heroData, contactData;
   let section1Data, section2Data, section3Data, section4Data;
+
+  let hero_data = {};
+  let section_1_data = {};
+  let section_2_data = [];
+  let section_3_data = {};
+  let section_4_data = {};
+  let contact_data = {};
 
   const fetchRefs = async (url) => {
     const res = await fetch(url);
@@ -37,12 +44,6 @@
     const data = await res.json();
 
     //console.log(data);
-
-    let hero_data = {};
-    let section_1_data = {};
-    let section_2_data = [];
-    let section_3_data = {};
-    let section_4_data = {};
 
     await data.results.forEach(async (result, i) => {
       //console.log(index, result.uid);
@@ -82,6 +83,16 @@
             section_4_data.headline = section.primary.headline[0].text;
             section_4_data.instructions = section.primary.instructions;
           }
+
+          if (section.slice_type === "contact-section") {
+            console.log("CONTACT", section);
+            contact_data.headline = section.primary.headline[0].text;
+            contact_data.start = section.primary.headline[0].spans[0].start;
+            contact_data.end = section.primary.headline[0].spans[0].end;
+            contact_data.button_label = section.primary["button-label"];
+            contact_data.button_url = "/contact";
+            // console.log("contact_data", contact_data);
+          }
         });
       }
     });
@@ -102,6 +113,13 @@
         headline: section_4_data.headline,
         instructions: section_4_data.instructions,
       },
+      contact: {
+        headline: contact_data.headline,
+        start: contact_data.start,
+        end: contact_data.end,
+        button_label: contact_data.button_label,
+        button_url: contact_data.button_url,
+      },
     };
     callback(cleanData);
   };
@@ -111,6 +129,7 @@
     section1Data = await data.section1;
     section2Data = await data.section2;
     section4Data = await data.section4;
+    contactData = await data.contact;
   });
 </script>
 
@@ -152,4 +171,10 @@
   {/if}
 {/await}
 
-<!-- <ContactSection /> -->
+{#await contactData}
+  <h1 class="text-secondary text-8xl mt-72">Loading...</h1>
+{:then data}
+  {#if data !== undefined}
+    <ContactSection contents={data} />
+  {/if}
+{/await}

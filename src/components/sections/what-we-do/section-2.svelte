@@ -4,12 +4,14 @@
 
   //PROPS
   export let contents;
-  console.log("CONTENTS", contents);
+  console.log("CONTENTS", contents.length);
 </script>
 
 {#await contents then items}
   {#each items as item, i}
-    <div class="flex items-center justify-center w-full h-full py-120">
+    <div
+      class="flex items-center justify-center w-full h-full pt-200 space-x-32"
+    >
       {#if item.orientation === "left"}
         <div>
           <video loop width="920" height="518" autoplay="autoplay">
@@ -27,11 +29,18 @@
               </h1>
             </div>
           </div>
-          {#each item.information as info}
-            <div>
-              <p class="text-lg text-on-background-variant mt-16">
-                {info.text}
-              </p>
+          {#each item.information as info, i}
+            <div class="flex w-full items-center">
+              {#if info.text.length > 0}
+                <div class="text-xl font-bold text-primary-light w-120">
+                  <p>{i + 1}.</p>
+                </div>
+                <div>
+                  <p class="text-lg text-on-background-variant mt-16">
+                    {info.text}
+                  </p>
+                </div>
+              {/if}
             </div>
           {/each}
         </div>
@@ -47,11 +56,16 @@
               </h1>
             </div>
           </div>
-          {#each item.information as info}
-            <div>
-              <p class="text-lg text-on-background-variant mt-16">
-                {info.text}
-              </p>
+          {#each item.information as info, i}
+            <div class="flex w-full items-center">
+              <div class="text-xl font-bold text-primary-light w-148">
+                <p>{i + 1}.</p>
+              </div>
+              <div>
+                <p class="text-lg text-on-background-variant mt-16">
+                  {info.text}
+                </p>
+              </div>
             </div>
           {/each}
         </div>
@@ -64,9 +78,3 @@
     </div>
   {/each}
 {/await}
-
-<style>
-  img {
-    opacity: 0.8;
-  }
-</style>

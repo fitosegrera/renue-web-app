@@ -27,6 +27,7 @@
   },
   "type": "module",
   "dependencies": {
+    "p5": "^1.4.1",
     "svelte-select": "^4.4.4",
     "three": "^0.133.1"
   }

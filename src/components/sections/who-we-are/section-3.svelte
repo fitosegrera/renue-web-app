@@ -2,6 +2,9 @@
   //CONTAINERS
   import SectionContainer from "../../containers/section-one-col-center.svelte";
 
+  //SKETCHES
+  import Sketch from "../../sketches/bg-aurora.svelte";
+
   //PROPS
   export let contents;
   // console.log("contents.", contents);
@@ -16,16 +19,38 @@
 <svelte:window bind:scrollY={y} />
 
 <SectionContainer>
-  {#if contents !== undefined}
-    <div
-      style={"background: linear-gradient(" +
-        mapValue(y, 2500, 3000, 0, 180) +
-        "deg, rgb(255, 255, 255), rgb(220, 255, 220));"}
-      class="text-4xl font-bold px-168 py-360 text-center"
-    >
-      <p class="gradient-text-dark">
-        {contents.headline}
-      </p>
-    </div>
-  {/if}
+  <div class="relative w-full h-full">
+    {#if contents !== undefined}
+      <div
+        id="text-wrapper"
+        class="text-4xl font-bold px-168 py-360 text-center"
+      >
+        <p class="gradient-text-dark">
+          {contents.headline}
+        </p>
+      </div>
+    {/if}
+    <div id="bg-aurora" />
+    <Sketch />
+  </div>
 </SectionContainer>
+
+<style>
+  * {
+    overflow: hidden;
+  }
+
+  #bg-aurora {
+    position: absolute;
+    top: 0;
+    left: 0;
+    z-index: 1;
+  }
+
+  #text-wrapper {
+    position: relative;
+    /* top: 0;
+    left: 0; */
+    z-index: 10;
+  }
+</style>

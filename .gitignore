@@ -2,3 +2,4 @@
 /.svelte-kit
 /build
 /functions
+/static/assets/videos/*.mov
