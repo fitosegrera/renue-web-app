@@ -81,7 +81,6 @@
           if (section.slice_type === "section-4") {
             //console.log("section-4", section);
             section_4_data.headline = section.primary.headline[0].text;
-            section_4_data.instructions = section.primary.instructions;
           }
 
           if (section.slice_type === "contact-section") {
@@ -111,7 +110,6 @@
       section2: section_2_data,
       section4: {
         headline: section_4_data.headline,
-        instructions: section_4_data.instructions,
       },
       contact: {
         headline: contact_data.headline,
