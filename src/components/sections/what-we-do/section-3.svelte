@@ -7,9 +7,7 @@
 
   //PROPS
   export let contents;
-  // console.log("contents.", contents);
-
-  let items = ["", "", "", "", "", ""];
+  console.log("contents.", contents);
 
   let y;
 
@@ -23,25 +21,24 @@
 <SectionContainer>
   <!-- {#if contents !== undefined} -->
 
-  {#each items as item}
+  {#each contents as item}
     <div
       class="flex flex-col mx-auto w-full text-on-background-variant text-center"
     >
       <div
         class="flex flex-col items-center justify-center text-2xl font-bold text-center space-y-32"
       >
-        <div class="text-6xl text-secondary-light">
-          <Icon icon="fa:recycle" />
+        <div id="img-container" class="text-6xl text-secondary-light w-240">
+          <img src={item.thumbnail.url} alt="" />
         </div>
         <div>
-          <h1 class="gradient-text-light">Title One</h1>
+          <h1 class="gradient-text-light">{item.headline[0].text}</h1>
         </div>
       </div>
       <!-- {contents.headline} -->
       <div>
         <p class="text-lg leading-sm px-72 py-16">
-          Lorem ipsum dolor sit amet, consectetur adipiscing elit, sed do
-          eiusmod tempor incididunt ut labore et dolore magna.
+          {item.paragraph[0].text}
         </p>
       </div>
     </div>
@@ -51,4 +48,6 @@
 </SectionContainer>
 
 <style>
+  #img-container {
+  }
 </style>

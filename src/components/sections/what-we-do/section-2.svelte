@@ -1,10 +1,14 @@
 <script>
   //LIBS
   import Icon from "@iconify/svelte";
+  import { onMount } from "svelte";
 
   //PROPS
   export let contents;
-  console.log("CONTENTS", contents.length);
+
+  onMount(async () => {
+    return await document.getElementById("vid").play();
+  });
 </script>
 
 {#await contents then items}
@@ -14,7 +18,7 @@
     >
       {#if item.orientation === "left"}
         <div>
-          <video loop width="920" height="518" autoplay="autoplay">
+          <video id="vid" loop width="920" height="518" autoplay="autoplay">
             <source src="/assets/videos/scene-{i + 1}.webm" type="video/webm" />
           </video>
         </div>
@@ -70,7 +74,7 @@
           {/each}
         </div>
         <div>
-          <video loop width="920" height="518" autoplay="autoplay">
+          <video id="vid" loop width="920" height="518" autoplay="autoplay">
             <source src="/assets/videos/scene-{i + 1}.webm" type="video/webm" />
           </video>
         </div>

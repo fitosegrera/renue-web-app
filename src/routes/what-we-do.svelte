@@ -22,7 +22,7 @@
   let hero_data = {};
   let section_1_data = {};
   let section_2_data = [];
-  let section_3_data = {};
+  let section_3_data = [];
   let section_4_data = {};
   let contact_data = {};
 
@@ -74,8 +74,10 @@
 
           if (section.slice_type === "section-31") {
             //This registered as section-31 on PRISMIC, but its actually section-3
-            //console.log("section-3", section);
-            // section_1_data.headline = section.primary.headline[0].text;
+            await section.items.forEach((item) => {
+              //console.log("ITEM", item);
+              section_3_data.push(item);
+            });
           }
 
           if (section.slice_type === "section-4") {
@@ -84,7 +86,7 @@
           }
 
           if (section.slice_type === "contact-section") {
-            console.log("CONTACT", section);
+            //console.log("CONTACT", section);
             contact_data.headline = section.primary.headline[0].text;
             contact_data.start = section.primary.headline[0].spans[0].start;
             contact_data.end = section.primary.headline[0].spans[0].end;
@@ -108,6 +110,7 @@
         headline: section_1_data.headline,
       },
       section2: section_2_data,
+      section3: section_3_data,
       section4: {
         headline: section_4_data.headline,
       },
@@ -126,6 +129,7 @@
     heroData = await data.hero;
     section1Data = await data.section1;
     section2Data = await data.section2;
+    section3Data = await data.section3;
     section4Data = await data.section4;
     contactData = await data.contact;
   });
@@ -159,7 +163,13 @@
   {/if}
 {/await}
 
-<Section3 />
+{#await section3Data}
+  <h1 class="text-secondary text-8xl mt-72">Loading...</h1>
+{:then data}
+  {#if data !== undefined}
+    <Section3 contents={data} />
+  {/if}
+{/await}
 
 {#await section4Data}
   <h1 class="text-secondary text-8xl mt-72">Loading...</h1>

@@ -57,6 +57,12 @@ body {
   -webkit-text-fill-color: transparent;
 }
 
+.gradient-text-extra-light {
+  background: -webkit-linear-gradient(#dbf8ff, #f2ffd7);
+  -webkit-background-clip: text;
+  -webkit-text-fill-color: transparent;
+}
+
 .gradient-text-dark {
   background: -webkit-linear-gradient(#1d6172, #4a6907);
   -webkit-background-clip: text;
