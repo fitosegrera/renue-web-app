@@ -22,11 +22,13 @@
         <img src={contents.image_url} alt="" />
       </div>
     </div>
-    <div class="flex items-center w-100 h-100 text-lg text-left">
+    <div class="flex items-center w-full h-full text-lg text-left">
       {#if y > 250}
         <h1 in:fade={{ duration: 600 }} out:fade class="">
           {contents.paragraph}
         </h1>
+      {:else}
+        <div class="w-full h-full bg-transparent" />
       {/if}
     </div>
   </SectionContainer>

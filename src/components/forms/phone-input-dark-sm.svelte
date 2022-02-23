@@ -42,7 +42,10 @@
       <div class="flex w-full bg-secondary-variant rounded-md">
         <div class="flex select-container w-120">
           <select
+            id="country"
+            name="country"
             class="w-full h-64 bg-secondary-variant-light px-12 text-md rounded-sm"
+            required
           >
             {#each countryData as country}
               <option value={country}>
@@ -58,10 +61,12 @@
           class="flex w-50 h-64 items-center px-16 text-tertiary-main text-md"
         >
           <input
-            id="phone"
-            type="tel"
-            placeholder="000-000-0000"
+            {id}
+            {type}
+            name={id}
+            {placeholder}
             class="bg-secondary-variant"
+            required
           />
         </div>
       </div>

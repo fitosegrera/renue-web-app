@@ -6,6 +6,16 @@ export const cms_url = readable(repoUrl);
 export const navbar_data = writable({});
 export const footer_data = writable({});
 
+export const firebase_config = readable({
+  apiKey: "AIzaSyCSouMEoIw7vv05-t2LESvadQ2ae0oZLDw",
+  authDomain: "renue-web-app.firebaseapp.com",
+  projectId: "renue-web-app",
+  storageBucket: "renue-web-app.appspot.com",
+  messagingSenderId: "50343841663",
+  appId: "1:50343841663:web:7c09a6c5882a27d882d44a",
+  measurementId: "G-ES7P87P87R",
+});
+
 /*
 const fetchRefs = async () => {
   const res = await fetch(repoUrl);

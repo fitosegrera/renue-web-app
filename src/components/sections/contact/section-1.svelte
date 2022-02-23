@@ -1,7 +1,18 @@
 <script>
   //LIBS
+  import { onMount } from "svelte";
   import Icon from "@iconify/svelte";
   import { spring } from "svelte/motion";
+  import { initializeApp } from "firebase/app";
+  import {
+    getFirestore,
+    collection,
+    getDocs,
+    setDoc,
+    doc,
+  } from "firebase/firestore/lite";
+
+  // import "firebase/firestore";
 
   //CONTAINERS
   import SectionContainer from "../../containers/form.svelte";
@@ -13,34 +24,53 @@
   import TextAreaDarkLg from "../../forms/textarea-dark-lg.svelte";
   import Button from "../../buttons/lg-primary-icon-fill.svelte";
 
+  //STORES
+  import { firebase_config } from "../../../stores/renuestore";
+
   //PROPS
   export let contents;
 
+  onMount(async () => {
+    console.log($firebase_config);
+    // const app = await initializeApp($firebase_config);
+    // const db = await getFirestore(app);
+    // const contactCollection = await collection(db, "contact");
+    // const contactSnapshot = await getDocs(contactCollection);
+    // const contactList = await contactSnapshot.docs.map((d) => {
+    //   d.data();
+    //   console.log(d.data());
+    // });
+  });
+
   const onSubmit = async (e) => {
-    // console.log(e);
+    // console.log(e.target.options[0].text);
+    console.log(e.target.innerText);
     const formData = new FormData(e.target);
     const data = {};
     for (let field of formData) {
+      // console.log(field);
       const [key, value] = field;
       data[key] = value;
+      console.log(value);
+      if (key === "country") {
+        console.log(JSON.stringify(value));
+      }
     }
 
-    let composedMail = {
-      Host: "smtp.gmail.com",
-      Username: "renueenviro@gmail.com",
-      Password: "RenueEnviro_2021!",
-      To: "fitosegrera@gmail.com",
-      From: "renueenviro@gmail.com",
-      Subject: "Message from " + data.first_name + " " + data.last_name,
-      Body: JSON.stringify(data),
-    };
+    //console.log(data.country);
 
-    console.log(composedMail);
+    const app = await initializeApp($firebase_config);
+    const db = await getFirestore(app);
 
-    await Email.send(composedMail).then((message) => {
-      console.log(message);
-      alert("mail sent successfully");
-    });
+    // await setDoc(doc(db, "contact", "testuser2@mail.com"), {
+    //   first_name: data.first_name,
+    //   last_name: data.second_name,
+    //   email: data.email,
+    //   company_name: data.company_name,
+    //   message: data.message,
+    //   country: "",
+    //   phone: data.phone,
+    // });
   };
 
   let isBooped = false;
@@ -126,13 +156,13 @@
             id="phone"
             label="Phone *"
             type="tel"
-            placeholder="Phone number"
+            placeholder="000-000-0000"
           />
         </div>
         <div class="w-full">
           <TextInputDarkSm
             id="company_name"
-            label="Company (optional)"
+            label="Company *"
             type="text"
             placeholder="Company Name"
           />

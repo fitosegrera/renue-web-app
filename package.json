@@ -27,6 +27,7 @@
   },
   "type": "module",
   "dependencies": {
+    "firebase": "^9.6.7",
     "p5": "^1.4.1",
     "svelte-select": "^4.4.4",
     "three": "^0.133.1"
