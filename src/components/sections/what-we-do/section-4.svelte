@@ -12,10 +12,8 @@
   export let contents;
 
   onMount(async () => {
-    document.getElementById("vid").play();
+    //document.getElementById("vid").play();
   });
-
-  const handleClick = () => {};
 </script>
 
 <VideoContainer>
@@ -26,17 +24,17 @@
   </div>
   <div class="grid grid-cols-3 w-full h-full">
     <div
-      class="col-span-2 flex items-center justify-center w-full h-full pb-72"
+      class="col-span-2 flex items-center justify-center w-full h-full py-72"
     >
-      <video id="vid" loop width="1280" autoplay="autoplay">
+      <video id="vid" loop width="1280" autoplay>
         <source src="/assets/videos/360.webm" type="video/webm" />
       </video>
     </div>
     <div
-      class="flex flex-col items-center justify-center w-full h-full pb-72 text-lg gradient-text-extra-light space-y-32"
+      class="flex flex-col items-center justify-center w-full h-full pb-72 text-lg space-y-32"
     >
       <div>
-        <p>
+        <p class="gradient-text-extra-light">
           See our <span class="gradient-text-light font-semibold"
             >Interactive Model</span
           >
@@ -44,7 +42,7 @@
       </div>
       <div class="flex items-center justify-center w-full">
         <EnterButton
-          icon_label="gis:cube-3d"
+          icon_label="file-icons:3d-model"
           label="Enter"
           url="/model-viewer"
         />

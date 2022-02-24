@@ -3,11 +3,16 @@
   import Icon from "@iconify/svelte";
   import { onMount } from "svelte";
 
+  //COMPONENTS
+  // import Button
+
   //PROPS
   export let contents;
+  console.log("contents.", contents);
+  console.log(Object.keys(contents[0].image).length === 0);
 
   onMount(async () => {
-    return await document.getElementById("vid").play();
+    //await document.getElementById("vid").play();
   });
 </script>
 
@@ -47,6 +52,11 @@
               {/if}
             </div>
           {/each}
+          {#if Object.keys(item.image).length > 0}
+            <div class="w-full h-full bg-primary-main">
+              <h1>XXXXXX</h1>
+            </div>
+          {/if}
         </div>
       {:else}
         <div class="w-35">
@@ -72,6 +82,20 @@
               </div>
             </div>
           {/each}
+          {#if Object.keys(item.image).length > 0}
+            <a href={item.image.url} target="__blank">
+              <div
+                class="flex w-240 items-center justify-center text-primary-light hover:text-secondary-main h-full my-32 space-x-8 cursor-pointer"
+              >
+                <div class=" text-2xl font-bold">
+                  <Icon icon="ant-design:area-chart-outlined" />
+                </div>
+                <div class="text-lg font-bold ">
+                  <h2>{item.image.alt}</h2>
+                </div>
+              </div>
+            </a>
+          {/if}
         </div>
         <div>
           <video id="vid" loop width="920" height="518" autoplay="autoplay">
