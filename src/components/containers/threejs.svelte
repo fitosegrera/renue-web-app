@@ -1,4 +1,4 @@
-<main id="main-container" class="w-full gradient-blue-to-green-light-vertical">
+<main id="main-container" class="w-full gradient-bg-semidark-secondary">
   <slot />
 </main>
 
