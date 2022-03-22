@@ -96,13 +96,13 @@
             </div>
             <div
               id="text-wrapper"
-              class="flex mx-120 text-on-background-variant"
+              class="flex mx-120 w-auto h-auto text-on-background-variant"
             >
               <div
                 id="text-bar"
-                class="py-72 w-48 gradient-blue-to-green-light-diagonal"
+                class="py-32 w-32 gradient-blue-to-green-light-diagonal"
               />
-              <p class="text-secondary-light text-lg px-16">
+              <p class="text-on-background-variant text-lg px-16">
                 {item.paragraph}
               </p>
             </div>

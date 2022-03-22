@@ -17,12 +17,12 @@
   <div id="gradient">
     <div
       id="contents"
-      class="flex flex-col text-on-background-variant pt-360 xl:px-148 lg:px-96 md:px-72"
+      class="flex flex-col text-on-background-variant pt-240 xl:px-148 lg:px-96 md:px-72"
     >
-      <div class="flex items-center space-x-24 lg:h-240">
+      <div class="flex items-center space-x-24 h-auto">
         <div
           id="vertical-line"
-          class="pt-360 w-24 gradient-blue-to-green-light-diagonal"
+          class="w-24 h-300 gradient-blue-to-green-light-diagonal"
         />
         <div>
           <div>
@@ -30,7 +30,7 @@
               {headline}
             </h1>
           </div>
-          <div class="lg:w-720 sm:w-520">
+          <div class="lg:w-800 sm:w-520">
             {#if start != undefined}
               <h2 class="text-lg leading-md mt-16">
                 {paragraph.substring(0, start)}
@@ -65,7 +65,7 @@
   #wrapper {
     position: relative;
     z-index: 1;
-    min-height: 800px;
+    min-height: 700px;
     margin: auto;
     background-image: var(--image-url);
     background-repeat: no-repeat;
@@ -77,7 +77,7 @@
     margin: auto;
     left: 0;
     top: 0;
-    min-height: 800px;
+    min-height: 700px;
     width: 100%;
     z-index: -10;
     background: linear-gradient(

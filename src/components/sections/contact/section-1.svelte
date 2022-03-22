@@ -15,7 +15,7 @@
   // import "firebase/firestore";
 
   //CONTAINERS
-  import SectionContainer from "../../containers/form.svelte";
+  import SectionContainer from "../../containers/contact-form.svelte";
 
   //COMPONENTS
   import TextInputDarkSm from "../../forms/text-input-dark-sm.svelte";
@@ -40,6 +40,8 @@
     //   d.data();
     //   console.log(d.data());
     // });
+
+    console.log(contents);
   });
 
   const onSubmit = async (e) => {
@@ -99,9 +101,10 @@
   };
 </script>
 
-<SectionContainer>
-  <div class="w-800 mx-auto">
+<SectionContainer background={contents.background.url}>
+  <div class="relative w-800 mx-auto">
     <div
+      id="wrapper"
       class="w-800 md:text-3xl md:leading-5xl text-on-background-variant text-left font-bold"
     >
       <div class="w-100 h-full">
@@ -115,7 +118,7 @@
       </div>
     </div>
     <div
-      class="w-800 md:text-lg md:leading-xl text-on-background-variant text-left pt-96"
+      class="w-800 md:text-lg md:leading-xl text-on-background-variant text-left pt-168"
     >
       <div class="w-100 h-full">
         <p>{contents.instructions}</p>
@@ -189,7 +192,7 @@
           type="submit"
           on:mouseenter={toggle}
           on:mouseleave={toggle}
-          class="flex items-center px-32 space-x-16 w-268 h-72 text-on-background-variant font-bold rounded-md bg-primary-main transition ease-in-out hover:bg-secondary-main duration-500"
+          class="flex items-center w-280 px-32 space-x-16 h-72 text-on-background-variant font-bold rounded-md bg-primary-main transition ease-in-out hover:bg-secondary-main duration-500"
         >
           <div class="text-xl">
             <Icon icon="bi:send" {style} />
@@ -204,5 +207,11 @@
 <style>
   * {
     overflow: hidden;
+  }
+
+  #wrapper {
+    position: absolute;
+    top: 0;
+    left: 0;
   }
 </style>

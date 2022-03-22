@@ -45,9 +45,10 @@
       if (result.uid === "who-we-are") {
         //console.log(result.data.body);
         result.data.body.forEach((section, j) => {
-          //console.log(section);
+          // console.log(section);
           if (section.slice_type === "hero-section") {
-            hero_data.imageUrl = section.primary.image_url.url;
+            console.log(section);
+            hero_data.imageUrl = section.primary.image.url;
             hero_data.headline = section.primary.headline[0].text;
             hero_data.paragraph = section.primary.paragraph[0].text;
           }
@@ -59,8 +60,8 @@
           }
 
           if (section.slice_type === "section-2") {
-            //console.log(section);
             section.items.forEach((item, i) => {
+              console.log("section 2:", item);
               let tmp = {};
               if (i == 0) {
                 tmp.visible = true;
@@ -68,7 +69,7 @@
                 tmp.visible = false;
               }
               tmp.paragraph = item.paragraph[0].text;
-              tmp.imageUrl = item["image-url"].url;
+              tmp.imageUrl = item.image.url;
               tmp.label = item["interactive-menu-item"][0].text;
               tmp.id = item["interactive-menu-item"][0].text.toLowerCase();
 

@@ -49,6 +49,14 @@
             section_1_data.start = section.primary.heading[0].spans[0].start;
             section_1_data.end = section.primary.heading[0].spans[0].end;
           }
+
+          if (section.slice_type === "main") {
+            section_1_data.heading = section.primary.heading[0].text;
+            section_1_data.instructions = section.primary.information[0].text;
+            section_1_data.start = section.primary.heading[0].spans[0].start;
+            section_1_data.end = section.primary.heading[0].spans[0].end;
+            section_1_data.background = section.primary.background;
+          }
         });
       }
     });
@@ -68,6 +76,7 @@
         start: section_1_data.start,
         end: section_1_data.end,
         instructions: section_1_data.instructions,
+        background: section_1_data.background,
       },
     };
     //console.log("cleanData", cleanData);
@@ -89,13 +98,13 @@
   <script src="https://smtpjs.com/v3/smtp.js"></script>
 </svelte:head>
 
-{#await heroData}
+<!-- {#await heroData}
   <h1 class="text-secondary text-8xl mt-72">Loading...</h1>
 {:then data}
   {#if data !== undefined}
     <HeroSection contents={data} />
   {/if}
-{/await}
+{/await} -->
 
 {#await section1Data}
   <h1 class="text-secondary text-8xl mt-72">Loading...</h1>

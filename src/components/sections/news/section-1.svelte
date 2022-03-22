@@ -19,9 +19,22 @@
         <div
           class="flex flex-col items-center justify-center text-2xl font-bold text-center space-y-32"
         >
-          <div id="img-container" class="text-6xl text-secondary-light w-240">
-            <img src={item.image.url} alt="" />
-          </div>
+          {#if item.image.url !== undefined}
+            <div
+              id="img-container"
+              class="flex items-center text-6xl text-secondary-light h-320 mx-72 overflow-hidden rounded-xl"
+            >
+              <img src={item.image.url} alt="" />
+            </div>
+          {:else}
+            <div
+              class="flex items-center justify-center w-auto mx-72 h-320 overflow-hidden rounded-xl"
+            >
+              <video id="vid" loop width="920" height="518" autoplay="autoplay">
+                <source src="/assets/videos/oil.webm" type="video/webm" />
+              </video>
+            </div>
+          {/if}
           <div>
             <h1 class="gradient-text-light">{item.headline[0].text}</h1>
           </div>

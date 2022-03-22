@@ -74,6 +74,7 @@
               tmp.more = item.more[0].text;
               tmp.name = item.name[0].text;
               tmp.role = item.role[0].text;
+              //console.log(item.profile.url);
               tmp.img_url = item.profile.url;
               tmp.bio = item.bio[0].text;
 
@@ -107,8 +108,10 @@
           }
 
           if (section.slice_type === "section-4") {
-            //console.log(section);
-            section_4_data.headline = section.primary.headline[0].text;
+            console.log(section);
+            section_4_data.headline = [];
+            section_4_data.headline = section.primary.headline;
+            section_4_data.spans = section.primary.spans;
             section_4_data.image_url = section.primary["background-image"].url;
           }
 
@@ -142,7 +145,11 @@
         title: section_3_title,
         section_3_data,
       },
-      section4: section_4_data,
+      section4: {
+        headline: section_4_data.headline,
+        image_url: section_4_data.image_url,
+        spans: section_4_data.spans,
+      },
       contact: {
         headline: contact_data.headline,
         start: contact_data.start,

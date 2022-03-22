@@ -12,6 +12,7 @@
   import Section1 from "../components/sections/home/section-1.svelte";
   import Section2 from "../components/sections/home/section-2.svelte";
   import Section3 from "../components/sections/home/section-3.svelte";
+  import OilSection from "../components/sections/home/oil-section.svelte";
   import ContactSection from "../components/sections/home/contact-section.svelte";
 
   //CODE
@@ -33,12 +34,11 @@
     const res = await fetch(url);
     const data = await res.json();
 
-    // console.log(data);
-
     let carouselSlides = [];
 
     let hero_data = {};
     let section_2_data = {};
+    let oil_life_data = [];
     let section_3_data = {};
     let contact_data = {};
 
@@ -54,6 +54,7 @@
             hero_data.paragraph = section.primary.paragraph[0].text;
             hero_data.subheading = section.primary.subheading[0].text;
             hero_data.buttonLabel = section.primary["button-label"];
+            hero_data.buttonUrl = section.primary["button-url"][0].text;
           }
           if (section.slice_type === "section-1") {
             section.items.forEach((item) => {
@@ -75,18 +76,22 @@
           if (section.slice_type === "section-3") {
             section_3_data.headline = section.primary.headline[0].text;
           }
+          if (section.slice_type === "section-4") {
+            section.items.forEach((item, j) => {
+              //console.log("ITEM", item);
+              oil_life_data.push(item);
+            });
+          }
           if (section.slice_type === "contact-section") {
             contact_data.headline = section.primary.headline[0].text;
             contact_data.start = section.primary.headline[0].spans[0].start;
             contact_data.end = section.primary.headline[0].spans[0].end;
-            contact_data.buttonLabel = section.primary["button-label"];
-            contact_data.buttonUrl = section.primary["button-url"];
+            contact_data.button_label = section.primary["button-label"];
+            contact_data.button_url = "/contact";
           }
         });
       }
     });
-
-    // console.log("original data", data);
 
     let cleanData = {
       hero: {
@@ -94,6 +99,7 @@
         uid: "hero", //data.uid,
         image_url: hero_data.imageUrl,
         button_label: hero_data.buttonLabel,
+        button_url: hero_data.buttonUrl,
         heading: hero_data.heading,
         subheading: hero_data.subheading,
         paragraph: hero_data.paragraph,
@@ -109,6 +115,7 @@
         start: section_2_data.start,
         end: section_2_data.end,
       },
+      oil: oil_life_data,
       section3: {
         headline: section_3_data.headline,
       },
@@ -125,6 +132,7 @@
 
   let heroData;
   let section1Data, section2Data, section3Data;
+  let oilLifeData;
   let contactData;
 
   fetchData($cms_url, async (data) => {
@@ -132,6 +140,7 @@
     section1Data = await data.section1;
     section2Data = await data.section2;
     section3Data = await data.section3;
+    oilLifeData = await data.oil;
     contactData = await data.contact;
   });
 </script>
@@ -166,11 +175,19 @@
   {/if}
 {/await}
 
-{#await section3Data}
+<!-- {#await section3Data}
   <h1 class="text-secondary text-8xl mt-72">Loading...</h1>
 {:then data}
   {#if data !== undefined}
     <Section3 {data} />
+  {/if}
+{/await} -->
+
+{#await oilLifeData}
+  <h1 class="text-secondary text-8xl mt-72">Loading...</h1>
+{:then data}
+  {#if data !== undefined}
+    <OilSection {data} />
   {/if}
 {/await}
 

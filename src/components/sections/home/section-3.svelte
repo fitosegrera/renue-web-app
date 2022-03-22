@@ -11,7 +11,7 @@
     id="wrapper"
     class="flex items-center h-full xl:text-4xl md:text-2xl xl:leading-6xl md:leading-4xl font-bold text-center text-on-background-variant"
   >
-    <h1 class="px-168 py-360">
+    <h1 class="px-168 py-168">
       {data.headline}
     </h1>
     <div id="gradient" class="" />

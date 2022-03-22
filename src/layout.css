@@ -16,7 +16,7 @@ body {
 .gradient-blue-to-green-light-diagonal {
   background: linear-gradient(
     45deg,
-    rgba(82, 235, 255, 0.692),
+    rgb(82, 235, 255),
     rgba(168, 255, 128, 0.719)
   );
 }

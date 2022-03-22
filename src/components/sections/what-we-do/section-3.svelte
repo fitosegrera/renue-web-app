@@ -26,7 +26,7 @@
       class="flex flex-col mx-auto w-full text-on-background-variant text-center"
     >
       <div
-        class="flex flex-col items-center justify-center text-2xl font-bold text-center space-y-32"
+        class="flex flex-col items-center justify-center text-xl font-bold text-center space-y-32"
       >
         <div id="img-container" class="text-6xl text-secondary-light w-240">
           <img src={item.thumbnail.url} alt="" />

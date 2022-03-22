@@ -18,12 +18,12 @@
     <div
       class="flex items-center justify-center w-full md:text-2xl md:leading-3xl text-left"
     >
-      <div class="w-100 h-full">
+      <div class="w-full h-full">
         <img src={contents.image_url} alt="" />
       </div>
     </div>
     <div class="flex items-center w-full h-full text-lg text-left">
-      {#if y > 250}
+      {#if y > 150}
         <h1 in:fade={{ duration: 600 }} out:fade class="">
           {contents.paragraph}
         </h1>

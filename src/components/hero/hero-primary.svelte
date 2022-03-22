@@ -1,12 +1,28 @@
 <script>
+  //LIBS
+  import { onMount } from "svelte";
+
+  //COMPONENTS
   import Button from "../buttons/lg-primary-icon-fill.svelte";
-  export let heading, subheading, paragraph;
+
+  //PROPS
+  export let heading,
+    subheading,
+    paragraph,
+    image_url,
+    button_label,
+    button_url;
+
+  onMount(async () => {
+    let mainContainer = document.getElementById("mainContainer");
+    mainContainer.style.backgroundImage = "url('" + image_url + "')";
+  });
 
   let splitted = subheading.split("%%");
-  // console.log("splitted", splitted);
+  //console.log("image_url", image_url);
 </script>
 
-<div id="wrapper">
+<div id="mainContainer">
   <div id="gradient">
     <div
       id="contents"
@@ -22,11 +38,11 @@
       <h2 class="text-lg leading-md mt-56 xl:max-w-lg md:max-w-lg">
         {paragraph}
       </h2>
-      <div class="mt-56">
+      <div class="mt-56 w-300">
         <Button
           icon_label="ic:outline-eco"
-          label="Get Started"
-          url="/contact"
+          label={button_label}
+          url={button_url}
         />
       </div>
     </div>
@@ -37,7 +53,7 @@
   * {
     overflow: hidden;
   }
-  #wrapper {
+  #mainContainer {
     position: relative;
     z-index: 1;
     min-height: 800px;

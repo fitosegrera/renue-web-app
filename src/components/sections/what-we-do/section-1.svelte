@@ -4,7 +4,7 @@
 
   //PROPS
   export let contents;
-  // console.log("contents.", contents);
+  console.log("contents.", contents);
 
   let y;
 
@@ -23,8 +23,44 @@
         "deg, rgb(255, 255, 255), rgb(230, 255, 230));"}
       class="text-3xl font-bold px-168 py-168 text-center"
     >
-      <p class="gradient-text-dark">
-        {contents.headline}
+      <p class="text-secondary-dark-alpha">
+        {contents.headline.slice(0, contents.spans[0].start)}
+        <span class="text-primary-main font-bold"
+          >{contents.headline.slice(
+            contents.spans[0].start,
+            contents.spans[0].end
+          )}</span
+        >
+        {contents.headline.slice(
+          contents.spans[0].end,
+          contents.spans[1].start
+        )}
+        <span class="text-primary-main font-bold"
+          >{contents.headline.slice(
+            contents.spans[1].start,
+            contents.spans[1].end
+          )}</span
+        >
+        {contents.headline.slice(
+          contents.spans[1].end,
+          contents.spans[2].start
+        )}
+        <span class="text-primary-main font-bold"
+          >{contents.headline.slice(
+            contents.spans[2].start,
+            contents.spans[2].end
+          )}</span
+        >
+        {contents.headline.slice(
+          contents.spans[2].end,
+          contents.spans[3].start
+        )}
+        <span class="text-primary-main font-bold"
+          >{contents.headline.slice(
+            contents.spans[3].start,
+            contents.spans[3].end
+          )}.</span
+        >
       </p>
     </div>
   {/if}

@@ -60,6 +60,7 @@
           if (section.slice_type === "section-3") {
             //This registered as section-3 on PRISMIC, but it is actually section-1
             section_1_data.headline = section.primary.headline[0].text;
+            section_1_data.spans = section.primary.headline[0].spans;
           }
 
           if (section.slice_type === "section-2") {
@@ -67,7 +68,7 @@
             // section_1_data.headline = section.primary.headline[0].text;
 
             await section.items.forEach((item, j) => {
-              // console.log("ITEM", item);
+              console.log("ITEM", item);
               section_2_data.push(item);
             });
           }
@@ -108,6 +109,7 @@
       },
       section1: {
         headline: section_1_data.headline,
+        spans: section_1_data.spans,
       },
       section2: section_2_data,
       section3: section_3_data,

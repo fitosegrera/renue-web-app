@@ -23,7 +23,7 @@
     {#if contents !== undefined}
       <div
         id="text-wrapper"
-        class="text-4xl font-bold px-168 py-360 text-center"
+        class="text-4xl font-bold px-168 py-240 text-center"
       >
         <p class="gradient-text-dark">
           {contents.headline}

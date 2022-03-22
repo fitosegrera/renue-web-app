@@ -7,7 +7,7 @@
 
   //PROPS
   export let contents;
-  console.log(contents);
+  console.log("contents", contents);
 
   onMount(async () => {
     let root = document.querySelector(":root");
@@ -18,9 +18,17 @@
 <SectionContainer>
   <div
     id="wrapper"
-    class="px-148 py-240 text-center text-2xl font-bold text-on-background-variant leading-lg"
+    class="px-148 py-120 text-center text-2xl font-bold text-on-background-variant leading-lg"
   >
-    <h1>{contents.headline}</h1>
+    {#each contents.headline as headline}
+      <!-- {#if data.spans > 0} -->
+      <div class="my-72">
+        <h1>{headline.text}</h1>
+      </div>
+      <!-- {:else} -->
+
+      <!-- {/if} -->
+    {/each}
     <div id="gradient" class="" />
   </div>
 </SectionContainer>

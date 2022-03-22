@@ -11,7 +11,7 @@
 
 <SectionContainer>
   <div
-    class="flex items-center w-full text-on-background-variant md:text-2xl md:leading-3xl text-left my-240"
+    class="flex items-center w-full text-on-background-variant md:text-2xl md:leading-3xl text-left my-120"
   >
     <h1>
       {data.headline}

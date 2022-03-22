@@ -33,19 +33,8 @@
 
     id++;
   });
-
-  const handleImageClicked = (e) => {
-    //console.log(e.detail);
-  };
 </script>
 
 <div class="bg-background-light w-full h-auto py-72">
-  <Carousel
-    {slides}
-    displayControls={true}
-    autoplay={true}
-    autoplaySpeed={5000}
-    speed={800}
-    on:imageClicked={handleImageClicked}
-  />
+  <Carousel {slides} transition_speed={800} />
 </div>
