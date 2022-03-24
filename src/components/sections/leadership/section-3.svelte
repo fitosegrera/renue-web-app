@@ -14,7 +14,7 @@
 </script>
 
 <div
-  class="flex items-center space-x-12 w-full mt-72 text-2xl font-bold text-primary-light px-168"
+  class="flex items-center space-x-12 w-full text-2xl font-bold text-primary-light px-168"
 >
   <!-- <Icon icon="bx:bx-comment-detail" /> -->
   <h1 class="text-on-background-variant">{contents.title}</h1>
@@ -23,7 +23,7 @@
   <SectionContainer>
     {#if contents !== undefined}
       {#each contents.section_3_data as card}
-        <div class="flex justify-center w-full h-640">
+        <div class="flex justify-center w-full h-720">
           <CardBioDark
             id={card.name.replace(/\s/g, "").toLowerCase()}
             name={card.name}

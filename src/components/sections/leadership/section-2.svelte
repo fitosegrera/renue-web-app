@@ -24,7 +24,7 @@
   <SectionContainer>
     {#if contents !== undefined}
       {#each contents.section_2_data as card}
-        <div class="flex justify-center w-full h-640">
+        <div class="flex justify-center w-full h-720">
           <CardBioDark
             id={card.name.replace(/\s/g, "").toLowerCase()}
             name={card.name}

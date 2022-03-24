@@ -20,14 +20,21 @@
     id="wrapper"
     class="px-148 py-120 text-center text-2xl font-bold text-on-background-variant leading-lg"
   >
-    {#each contents.headline as headline}
-      <!-- {#if data.spans > 0} -->
-      <div class="my-72">
-        <h1>{headline.text}</h1>
-      </div>
-      <!-- {:else} -->
-
-      <!-- {/if} -->
+    {#each contents.headline as headline, i}
+      {#if i < 2}
+        <div class="my-72">
+          <h1>{headline.text}</h1>
+        </div>
+      {:else}
+        <div class="my-72">
+          <h1>
+            {headline.text.slice(0, contents.spans[0].start)}
+            <span class="text-primary-main">
+              {headline.text.slice(contents.spans[0].start)}
+            </span>
+          </h1>
+        </div>
+      {/if}
     {/each}
     <div id="gradient" class="" />
   </div>

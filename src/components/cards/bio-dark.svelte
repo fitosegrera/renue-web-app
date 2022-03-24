@@ -15,14 +15,13 @@
 
   let isInfoVisible = false;
 
-  const handleInfoVisibility = (e) => {
-    //console.log("state", e.detail.state);
+  const handleInfoVisibility = async (e) => {
+    console.log("state", e.detail.state);
     isInfoVisible = e.detail.state;
   };
 
   onMount(async () => {
     let imgContainer = await document.getElementById("image-container-" + id);
-    //console.log("URL:", img_url);
     imgContainer.style.backgroundImage = await ("url(" + img_url + ")");
     imgContainer.style.backgroundRepeat = await "no-repeat";
     imgContainer.style.backgroundPosition = await "center";
@@ -30,40 +29,41 @@
   });
 </script>
 
-{#if isInfoVisible}
-  <div
-    transition:fly={{ x: 900, duration: 1000 }}
-    id="info-window"
-    class="w-screen h-full bg-secondary-dark-alpha"
-  >
-    <div class="flex w-full h-72 justify-end items-center p-64">
-      <div
-        on:click={() => {
-          isInfoVisible = false;
-        }}
-        class="text-2xl text-primary-light hover:text-secondary-main cursor-pointer"
-      >
-        <Icon icon="ant-design:close-square-outlined" />
-      </div>
-    </div>
-    <div class="flex px-120">
-      <div class="w-75 h-800 px-72">
-        <div id="image-container-small" class="w-full h-75" />
-        <div class="text-2xl font-bold text-primary-light pt-32">
-          <h1>{name}</h1>
-        </div>
-        <div class="text-lg font-bold text-primary-light-variant pt-8">
-          <h1>{role}</h1>
-        </div>
-      </div>
-      <div class="w-100 px-72 text-lg text-on-background-variant">
-        <p>{bio}</p>
-      </div>
-    </div>
-  </div>
-{/if}
-
 {#await id then identifier}
+  {#if isInfoVisible}
+    <div
+      transition:fly={{ x: 900, duration: 1000 }}
+      id="info-window"
+      class="w-screen h-full bg-secondary-dark-alpha"
+    >
+      <div class="flex w-full h-72 justify-end items-center px-64">
+        <div
+          on:click={() => {
+            isInfoVisible = false;
+          }}
+          class="text-2xl text-primary-light hover:text-secondary-main cursor-pointer"
+        >
+          <Icon icon="ant-design:close-square-outlined" />
+        </div>
+      </div>
+      <div class="flex px-96">
+        <div class="w-50 h-full px-72">
+          <!-- <div id={"image-container-" + identifier} class="w-full h-50" /> -->
+          <img class="w-full" src={img_url} alt="" />
+          <div class="text-2xl font-bold text-primary-light pt-32">
+            <h1>{name}</h1>
+          </div>
+          <div class="text-lg font-bold text-primary-light-variant pt-8">
+            <h1>{role}</h1>
+          </div>
+        </div>
+        <div class="w-100 px-72 text-lg text-on-background-variant">
+          <p>{bio}</p>
+        </div>
+      </div>
+    </div>
+  {/if}
+
   <div
     id="card-wrapper"
     class="w-full h-75 gradient-bg-secondary-main rounded-lg"
@@ -138,9 +138,9 @@
 
   #image-container-small {
     cursor: pointer;
-    background-image: var(--img_url);
+    /* background-image: var(--img_url);
     background-position: center;
     background-repeat: no-repeat;
-    background-size: cover;
+    background-size: cover; */
   }
 </style>

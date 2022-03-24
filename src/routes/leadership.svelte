@@ -111,8 +111,8 @@
             console.log(section);
             section_4_data.headline = [];
             section_4_data.headline = section.primary.headline;
-            section_4_data.spans = section.primary.spans;
             section_4_data.image_url = section.primary["background-image"].url;
+            section_4_data.spans = section.primary.headline[2].spans;
           }
 
           if (section.slice_type === "contact-section") {
