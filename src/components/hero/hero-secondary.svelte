@@ -70,6 +70,7 @@
     background-image: var(--image-url);
     background-repeat: no-repeat;
     background-size: cover;
+    background-position: center;
   }
 
   #gradient {
@@ -83,7 +84,7 @@
     background: linear-gradient(
       to bottom right,
       #0b1d2ee5 10%,
-      rgba(53, 53, 53, 0.541)
+      rgba(53, 53, 53, 0.199)
     );
   }
 

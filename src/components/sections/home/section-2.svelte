@@ -22,9 +22,9 @@
   >
     <h1>
       {data.paragraph.substr(0, data.start)}
-      <span class="text-primary-light font-bold underline"
-        >{data.paragraph.substr(data.start, data.end)}</span
-      >
+      <p class="text-primary-light font-bold mt-32 text-xl">
+        {data.paragraph.substr(data.start, data.end)}
+      </p>
     </h1>
   </div>
 </SectionContainer>

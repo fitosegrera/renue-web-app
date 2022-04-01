@@ -1,13 +1,15 @@
 <script>
   //LIBS
-  import Icon from "@iconify/svelte";
+  import { onMount } from "svelte";
 
   //CONTAINERS
   import SectionContainer from "../../containers/matrix3x2.svelte";
 
   //PROPS
   export let contents;
-  // console.log("contents.", contents);
+  console.log("contents.", contents);
+
+  onMount(async () => {});
 
   let y;
 
@@ -23,19 +25,23 @@
 
   {#each contents as item}
     <div
-      class="flex flex-col mx-auto w-full text-on-background-variant text-center"
+      class="flex flex-col mx-auto px-32 w-full text-on-background-variant text-center"
     >
       <div
-        class="flex flex-col items-center justify-center text-xl font-bold text-center space-y-32"
+        class="flex flex-col items-center justify-center text-2xl font-bold text-center space-y-32"
       >
-        <div id="img-container" class="text-6xl text-secondary-light w-240">
-          <img src={item.thumbnail.url} alt="" />
-        </div>
-        <div>
+        {#if item.thumbnail.url !== undefined}
+          <div
+            id="img-container"
+            class="flex items-center text-6xl text-secondary-light h-364 mx-72 overflow-hidden rounded-xl"
+          >
+            <img src={item.thumbnail.url} alt="" />
+          </div>
+        {/if}
+        <div class="w-full">
           <h1 class="gradient-text-light">{item.headline[0].text}</h1>
         </div>
       </div>
-      <!-- {contents.headline} -->
       <div>
         <p class="text-lg leading-sm px-72 py-16">
           {item.paragraph[0].text}
@@ -49,5 +55,8 @@
 
 <style>
   #img-container {
+    width: 100%;
+    height: 320px;
+    background-size: cover;
   }
 </style>

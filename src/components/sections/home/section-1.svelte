@@ -36,5 +36,5 @@
 </script>
 
 <div class="bg-background-light w-full h-auto py-72">
-  <Carousel {slides} transition_speed={800} />
+  <Carousel {slides} transition_speed={800} slide_stimeout={3000} />
 </div>

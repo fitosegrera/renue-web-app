@@ -105,7 +105,7 @@
   <div class="relative w-800 mx-auto">
     <div
       id="wrapper"
-      class="w-800 md:text-3xl md:leading-5xl text-on-background-variant text-left font-bold"
+      class="w-800 md:text-2xl md:leading-2xl text-on-background-variant text-left font-bold"
     >
       <div class="w-100 h-full">
         <h1>

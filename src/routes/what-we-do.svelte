@@ -64,7 +64,7 @@
           }
 
           if (section.slice_type === "section-2") {
-            //console.log("section-2", section.items);
+            console.log("section-2", section.items);
             // section_1_data.headline = section.primary.headline[0].text;
 
             await section.items.forEach((item, j) => {
@@ -76,7 +76,7 @@
           if (section.slice_type === "section-31") {
             //This registered as section-31 on PRISMIC, but its actually section-3
             await section.items.forEach((item) => {
-              //console.log("ITEM", item);
+              console.log("ITEM", item);
               section_3_data.push(item);
             });
           }

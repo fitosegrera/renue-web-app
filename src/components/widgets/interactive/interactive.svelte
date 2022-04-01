@@ -47,7 +47,7 @@
 
 <div
   id="wrapper"
-  class="grid grid-flow-col grid-cols-5 w-full h-screen gradient-bg-semidark-secondary"
+  class="grid grid-flow-col grid-cols-5 w-full h-720 gradient-bg-semidark-secondary"
 >
   <div class="flex my-auto col-span-2 pl-148 text-4xl font-bold">
     <div class="w-full space-y-24">
@@ -78,18 +78,18 @@
       {#if item.visible}
         <div
           id="slide"
-          class="w-1120 h-1120"
+          class="w-1120 h-720"
           transition:fly={{ x: 600, duration: 1000 }}
         >
           <div
             id="overlay"
-            class="flex flex-col w-1120 text-lg space-y-24 py-400"
+            class="flex flex-col w-1120 text-lg space-y-24 py-320"
           >
             <div
               id="title"
               class="flex items-center text-xl text-on-background-variant w-full px-120 space-x-12"
             >
-              <Icon icon="gridicons:share-computer" />
+              <!-- <Icon icon="gridicons:share-computer" /> -->
               <h1 class="text-xl font-bold text-on-background-variant">
                 {item.label}
               </h1>
@@ -132,7 +132,7 @@
     height: 720px;
     background-image: var(--imgurl);
     background-repeat: no-repeat;
-    background-size: fit;
+    background-size: cover;
   }
 
   #slide {

@@ -21,41 +21,49 @@
       style={"background: linear-gradient(" +
         mapValue(y, 2500, 3000, 0, 180) +
         "deg, rgb(255, 255, 255), rgb(230, 255, 230));"}
-      class="text-3xl font-bold px-168 py-168 text-center"
+      class="text-3xl font-bold px-200 py-168 text-center"
     >
-      <p class="text-secondary-dark-alpha">
-        {contents.headline.slice(0, contents.spans[0].start)}
-        <span class="text-primary-main font-bold"
+      <p class="">
+        <span class="gradient-text-dark font-bold px-8">
+          {contents.headline.slice(0, contents.spans[0].start)}
+        </span>
+        <span class="gradient-text-dark-variant font-bold italic px-8"
           >{contents.headline.slice(
             contents.spans[0].start,
             contents.spans[0].end
           )}</span
         >
-        {contents.headline.slice(
-          contents.spans[0].end,
-          contents.spans[1].start
-        )}
-        <span class="text-primary-main font-bold"
+        <span class="gradient-text-dark font-bold">
+          {contents.headline.slice(
+            contents.spans[0].end,
+            contents.spans[1].start
+          )}
+        </span>
+        <span class="gradient-text-dark-variant font-bold italic px-8"
           >{contents.headline.slice(
             contents.spans[1].start,
             contents.spans[1].end
           )}</span
         >
-        {contents.headline.slice(
-          contents.spans[1].end,
-          contents.spans[2].start
-        )}
-        <span class="text-primary-main font-bold"
+        <span class="gradient-text-dark font-bold">
+          {contents.headline.slice(
+            contents.spans[1].end,
+            contents.spans[2].start
+          )}
+        </span>
+        <span class="gradient-text-dark-variant font-bold italic px-8"
           >{contents.headline.slice(
             contents.spans[2].start,
             contents.spans[2].end
           )}</span
         >
-        {contents.headline.slice(
-          contents.spans[2].end,
-          contents.spans[3].start
-        )}
-        <span class="text-primary-main font-bold"
+        <span class="gradient-text-dark font-bold">
+          {contents.headline.slice(
+            contents.spans[2].end,
+            contents.spans[3].start
+          )}
+        </span>
+        <span class="gradient-text-dark-variant font-bold italic px-8"
           >{contents.headline.slice(
             contents.spans[3].start,
             contents.spans[3].end

@@ -12,16 +12,16 @@
 {#await data then item}
   <div class="w-auto h-auto grid grid-cols-2 xl:mx-72 md:mx-72 my-96">
     <div id="video-container">
-      <video id="vid" loop width="1200" autoplay="autoplay">
+      <video id="vid" loop width="1200" autoplay="autoplay" muted>
         <source src="/assets/videos/scene-1.webm" type="video/webm" />
         <track kind="captions" />
       </video>
     </div>
     <div class="ml-60">
       <div class="flex items-center space-x-12">
-        <div class="text-2xl text-primary-light">
+        <!-- <div class="text-2xl text-primary-light">
           <Icon icon="mdi:oil-level" />
-        </div>
+        </div> -->
         <div>
           <h1 class="text-2xl font-semibold text-on-background-variant">
             {item[0].headline[0].text}

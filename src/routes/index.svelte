@@ -47,12 +47,16 @@
       if (result.uid === "homepage") {
         //console.log(result.data.body);
         result.data.body.forEach((section, j) => {
-          //console.log(section);
           if (section.slice_type === "hero-section") {
+            //console.log(section.primary.subheading[0].spans[0].start);
             hero_data.imageUrl = section.primary["bg-image"].url;
             hero_data.heading = section.primary.heading[0].text;
             hero_data.paragraph = section.primary.paragraph[0].text;
             hero_data.subheading = section.primary.subheading[0].text;
+            hero_data.subheading_start =
+              section.primary.subheading[0].spans[0].start;
+            hero_data.subheading_end =
+              section.primary.subheading[0].spans[0].end;
             hero_data.buttonLabel = section.primary["button-label"];
             hero_data.buttonUrl = section.primary["button-url"][0].text;
           }
@@ -102,6 +106,8 @@
         button_url: hero_data.buttonUrl,
         heading: hero_data.heading,
         subheading: hero_data.subheading,
+        subheading_start: hero_data.subheading_start,
+        subheading_end: hero_data.subheading_end,
         paragraph: hero_data.paragraph,
       },
       section1: {

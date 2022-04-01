@@ -38,6 +38,7 @@
     let section_2_title = "";
     // let section_3_data = [];
     let section_3_title = "";
+    let section_3_spans = [];
     let contact_data = {};
 
     data.results.forEach((result, i) => {
@@ -56,6 +57,7 @@
           if (section.slice_type === "section-1") {
             console.log(section.primary.image.url);
             section_1_data.imageUrl = section.primary.image.url;
+            section_1_data.imageAlt = section.primary.image.alt;
             section_1_data.paragraph = section.primary.paragraph[0].text;
           }
 
@@ -78,8 +80,9 @@
           }
 
           if (section.slice_type === "section-3") {
-            console.log(section);
+            console.log("section-3", section.primary.headline[0]);
             section_3_title = section.primary.headline[0].text;
+            section_3_spans = section.primary.headline[0].spans;
           }
 
           if (section.slice_type === "contact-section") {
@@ -102,10 +105,14 @@
       },
       section1: {
         image_url: section_1_data.imageUrl,
+        image_alt: section_1_data.imageAlt,
         paragraph: section_1_data.paragraph,
       },
       section2: section_2_data,
-      section3: { headline: section_3_title },
+      section3: {
+        headline: section_3_title,
+        spans: section_3_spans,
+      },
       contact: {
         headline: contact_data.headline,
         start: contact_data.start,

@@ -54,7 +54,7 @@
 
 <div
   id="wrapper"
-  class="w-full xl:px-148 lg:px-96 md:px-72 h-72 bg-on-background-variant-alpha"
+  class="w-full xl:px-148 lg:px-96 md:px-72 h-72 bg-on-background-variant"
 >
   <nav class="flex py-16 lg:text-md md:text-md">
     <div class="flex-grow">

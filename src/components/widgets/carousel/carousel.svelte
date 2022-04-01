@@ -1,5 +1,6 @@
 <script>
   //LIBS
+  import { onMount } from "svelte";
   import { flip } from "svelte/animate";
   import Icon from "@iconify/svelte";
 
@@ -8,7 +9,8 @@
 
   //PROPS
   export let slides;
-  export let transition_speed = 500;
+  export let transition_speed;
+  export let slide_stimeout;
 
   console.log(slides);
 
@@ -31,6 +33,12 @@
       transition_speed
     );
   };
+
+  onMount(async () => {
+    setInterval(() => {
+      rotateRight();
+    }, slide_stimeout);
+  });
 </script>
 
 <div id="carousel-container" class="">

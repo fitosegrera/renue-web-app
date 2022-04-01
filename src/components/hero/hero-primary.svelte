@@ -8,6 +8,8 @@
   //PROPS
   export let heading,
     subheading,
+    subheading_start,
+    subheading_end,
     paragraph,
     image_url,
     button_label,
@@ -18,7 +20,7 @@
     mainContainer.style.backgroundImage = "url('" + image_url + "')";
   });
 
-  let splitted = subheading.split("%%");
+  // let splitted = subheading.split("%%");
   //console.log("image_url", image_url);
 </script>
 
@@ -32,8 +34,11 @@
         {heading}
       </h1>
       <h2 class="text-4xl font-bold leading-4xl">
-        {splitted[0]}<span class="text-primary-main">{splitted[1]}</span
-        >{splitted[2]}
+        {subheading.substring(0, subheading_start)}
+        <span class="text-primary-main"
+          >{subheading.substring(subheading_start, subheading_end)}</span
+        >
+        {subheading.substring(subheading_end, subheading.length)}
       </h2>
       <h2 class="text-lg leading-md mt-56 xl:max-w-lg md:max-w-lg">
         {paragraph}
@@ -73,8 +78,8 @@
     z-index: -10;
     background: linear-gradient(
       to bottom right,
-      #0b1d2ee5 40%,
-      rgba(53, 53, 53, 0.541)
+      #0b1d2ee5 20%,
+      rgba(53, 53, 53, 0.13)
     );
   }
 

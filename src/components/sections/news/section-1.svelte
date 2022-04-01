@@ -39,7 +39,7 @@
             <h1 class="gradient-text-light">{item.headline[0].text}</h1>
           </div>
         </div>
-        <div>
+        <div class="h-240">
           <p class="text-lg leading-sm px-72 py-16">
             {item.paragraph[0].text}
           </p>
@@ -57,3 +57,9 @@
     {/each}
   </SectionContainer>
 </div>
+
+<style>
+  * {
+    overflow: hidden;
+  }
+</style>
