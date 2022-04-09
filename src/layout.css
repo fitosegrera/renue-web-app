@@ -29,6 +29,10 @@ body {
   background: linear-gradient(180deg, #032027, #3fc4e5 200%);
 }
 
+.gradient-bg-semidark-secondary-alpha {
+  background: linear-gradient(180deg, #032027e9, #3fc4e5df 200%);
+}
+
 .gradient-bg-secondary-main {
   background: linear-gradient(0deg, #6498a5 #063b48 200%);
 }

@@ -145,17 +145,19 @@ module.exports = {
       full: "100%",
     },
     screens: {
-      sm: "576px",
+      sm: "320px",
       // => @media (min-width: 576px) { ... }
 
-      md: "960px",
+      md: "640px",
       // => @media (min-width: 960px) { ... }
 
-      lg: "1280px",
+      lg: "800px",
       // => @media (min-width: 1280px) { ... }
 
-      xl: "1440px",
+      xl: "1280px",
       // => @media (min-width: 1440px) { ... }
+
+      "2xl": "1440px",
     },
     extend: {
       lineHeight: {

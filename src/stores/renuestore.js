@@ -1,8 +1,10 @@
 import { readable, writable } from "svelte/store";
 
 const repoUrl = "https://renue-web-app.prismic.io/api/v2";
+const breakPointWidth = 960;
 
 export const cms_url = readable(repoUrl);
+export const break_point = readable(breakPointWidth);
 export const navbar_data = writable({});
 export const footer_data = writable({});
 

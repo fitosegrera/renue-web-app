@@ -28,19 +28,21 @@
   <div id="gradient">
     <div
       id="contents"
-      class="text-on-background-variant pt-168 xl:px-148 lg:px-96 md:px-72"
+      class="text-on-background-variant pt-168 xl:px-148 lg:px-96 md:px-72 sm:px-24 lg:text-3xl sm:text-xl font-bold xl:leading-6xl sm:leading-2xl"
     >
-      <h1 class="text-4xl font-bold leading-6xl">
+      <h1 class="">
         {heading}
       </h1>
-      <h2 class="text-4xl font-bold leading-4xl">
+      <h2 class="">
         {subheading.substring(0, subheading_start)}
         <span class="text-primary-main"
           >{subheading.substring(subheading_start, subheading_end)}</span
         >
         {subheading.substring(subheading_end, subheading.length)}
       </h2>
-      <h2 class="text-lg leading-md mt-56 xl:max-w-lg md:max-w-lg">
+      <h2
+        class="lg:text-lg sm:text-md lg:leading-md md:leading-sm mt-56 2xl:max-w-lg xl:max-w-xl sm:max-w-2xl"
+      >
         {paragraph}
       </h2>
       <div class="mt-56 w-300">

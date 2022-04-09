@@ -3,7 +3,7 @@
   import { scale } from "svelte/transition";
 
   //PROPS
-  export let label, url, id;
+  export let label, url, id, mobile_view;
 
   $: visible = false;
 
@@ -26,21 +26,25 @@
   on:mouseenter={handleMouseEnter}
   on:mouseleave={handleMouseleave}
 >
-  <div id="text-wrapper" class="px-16 mb-8">
+  <div id="text-wrapper" class="">
     <a href={url}>
       {label}
     </a>
   </div>
   <!-- <div class="w-75 h-8" /> -->
   {#if visible}
-    <div class="flex items-center justify-center">
-      <div
-        transition:scale={{ start: 0.5, duration: 600 }}
-        class="underline-wrapper w-120 h-6"
-      >
-        <div class="underline-object w-full h-6" {id} />
+    {#if mobile_view}
+      <div class="" />
+    {:else}
+      <div class="flex items-center justify-center">
+        <div
+          transition:scale={{ start: 0.5, duration: 600 }}
+          class="underline-wrapper w-120 h-6"
+        >
+          <div class="underline-object w-full h-6" {id} />
+        </div>
       </div>
-    </div>
+    {/if}
   {/if}
 </div>
 
