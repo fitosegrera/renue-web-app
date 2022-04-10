@@ -17,15 +17,12 @@
   let innerWidth;
 
   const switchView = (e) => {
-    // mobileView = !mobileView;
-
     if (innerWidth <= $break_point) {
       mobileView = true;
     } else {
       mobileView = false;
     }
-
-    console.log(mobileView);
+    //console.log(mobileView);
   };
 
   onMount(async () => {

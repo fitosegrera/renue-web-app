@@ -19,16 +19,13 @@
     let mainContainer = document.getElementById("mainContainer");
     mainContainer.style.backgroundImage = "url('" + image_url + "')";
   });
-
-  // let splitted = subheading.split("%%");
-  //console.log("image_url", image_url);
 </script>
 
 <div id="mainContainer">
   <div id="gradient">
     <div
       id="contents"
-      class="text-on-background-variant pt-168 xl:px-148 lg:px-96 md:px-72 sm:px-24 lg:text-3xl sm:text-xl font-bold xl:leading-6xl sm:leading-2xl"
+      class="text-on-background-variant md:pt-168 sm:pt-120 lg:text-3xl md:text-2xl sm:text-xl font-bold xl:leading-6xl sm:leading-2xl xl:px-168 lg:px-96 md:px-64 sm:px-32"
     >
       <h1 class="">
         {heading}
@@ -41,7 +38,7 @@
         {subheading.substring(subheading_end, subheading.length)}
       </h2>
       <h2
-        class="lg:text-lg sm:text-md lg:leading-md md:leading-sm mt-56 2xl:max-w-lg xl:max-w-xl sm:max-w-2xl"
+        class="lg:text-lg md:text-md sm:text-md lg:leading-md md:leading-sm mt-56 2xl:max-w-lg xl:max-w-xl sm:max-w-2xl"
       >
         {paragraph}
       </h2>
@@ -64,7 +61,7 @@
     position: relative;
     z-index: 1;
     min-height: 800px;
-    margin: auto;
+    /* margin: auto; */
     background-image: url("https://media.istockphoto.com/photos/stainless-steel-pipes-and-pipelines-in-modern-beer-factory-brewery-picture-id1152495926");
     background-repeat: no-repeat;
     background-size: cover;
