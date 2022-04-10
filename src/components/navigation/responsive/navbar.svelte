@@ -57,7 +57,7 @@
     </nav>
   {:else}
     <nav
-      class="flex justify-center items-center max-h-72 py-16 w-full bg-on-background-variant md:px-48 sm:24"
+      class="flex justify-center items-center max-h-72 py-16 w-full bg-on-background-variant xl:px-72 md:px-48 sm:px-24"
     >
       {#if navBarItems["menu-item"] !== undefined}
         <div class="flex-grow h-full items-center text-textColorDark">
@@ -67,7 +67,7 @@
             {/if}
           </a>
         </div>
-        <div class=" flex w-auto text-center xl:space-x-64 md:space-x-32">
+        <div class=" flex w-auto text-center xl:space-x-32 md:space-x-32">
           {#each navBarItems["menu-item"] as item}
             <div
               class="w-auto h-full xl:text-lg md:text-md text-secondary-dark"
@@ -94,6 +94,7 @@
     position: fixed;
     top: 0;
     left: 0;
+    /* max-width: 1920px; */
     /* background-color: rgba(104, 42, 104, 0.301); */
     /* backdrop-filter: blur(8px); */
     z-index: 40;

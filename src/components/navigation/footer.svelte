@@ -4,10 +4,13 @@
   import Icon from "@iconify/svelte";
 
   //STORES
-  import { cms_url } from "../../stores/renuestore";
+  import { cms_url, break_point } from "../../stores/renuestore";
 
   let footerItems = {};
   let socialItems = [];
+
+  let mobileView = false;
+  let innerWidth;
 
   /////////////////////////////////////////////
 
@@ -40,7 +43,26 @@
     callback(footerData);
   };
 
+  const switchView = (e) => {
+    if (innerWidth <= $break_point) {
+      mobileView = true;
+    } else {
+      mobileView = false;
+    }
+  };
+
   onMount(async () => {
+    if (innerWidth <= $break_point) {
+      mobileView = true;
+    } else {
+      mobileView = false;
+    }
+
+    const mediaListener = window.matchMedia(
+      "(max-width: " + $break_point + "px)"
+    );
+    mediaListener.addListener(switchView);
+
     fetchData(async (footer) => {
       //console.log("footer", footer);
       footerItems = await footer;
@@ -49,9 +71,11 @@
   });
 </script>
 
+<svelte:window bind:innerWidth />
+
 <div
   id="wrapper"
-  class="w-full h-auto xl:px-148 lg:px-96 md:px-72 bg-on-background-variant-alpha"
+  class="w-full h-auto md:px-72 sm:px-32 bg-on-background-variant-alpha"
 >
   <nav class="flex items-center py-32 xl:text-lg lg:text-lg md:text-md">
     <div class="flex flex-grow space-x-32 text-sm">
@@ -59,7 +83,9 @@
         <a href="/">
           <img src={footerItems.logo.url} alt="Renue Logo" class="w-120" />
         </a>
-        <p>{footerItems.copyright[0].text}</p>
+        {#if !mobileView}
+          <p>{footerItems.copyright[0].text}</p>
+        {/if}
       {/if}
     </div>
     <div class="flex items-center xl:space-x-48 sm:space-x-32 text-2xl">

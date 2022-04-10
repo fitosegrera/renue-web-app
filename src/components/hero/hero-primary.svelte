@@ -21,11 +21,11 @@
   });
 </script>
 
-<div id="mainContainer">
+<div id="mainContainer" class="">
   <div id="gradient">
     <div
       id="contents"
-      class="text-on-background-variant md:pt-168 sm:pt-120 lg:text-3xl md:text-2xl sm:text-xl font-bold xl:leading-6xl sm:leading-2xl xl:px-168 lg:px-96 md:px-64 sm:px-32"
+      class="text-on-background-variant md:pt-168 sm:pt-120 lg:text-3xl md:text-2xl sm:text-xl font-bold xl:leading-5xl md:leading-4xl sm:leading-2xl md:px-72 sm:px-32"
     >
       <h1 class="">
         {heading}
@@ -38,7 +38,7 @@
         {subheading.substring(subheading_end, subheading.length)}
       </h2>
       <h2
-        class="lg:text-lg md:text-md sm:text-md lg:leading-md md:leading-sm mt-56 2xl:max-w-lg xl:max-w-xl sm:max-w-2xl"
+        class="font-normal lg:text-lg md:text-md sm:text-md lg:leading-md md:leading-sm mt-48 2xl:max-w-lg xl:max-w-xl sm:max-w-2xl"
       >
         {paragraph}
       </h2>

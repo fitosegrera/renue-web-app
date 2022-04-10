@@ -18,7 +18,7 @@
   let mobileView = false;
   let innerWidth;
 
-  console.log(slides);
+  //console.log(slides);
 
   const rotateLeft = (e) => {
     const transitioningImage = slides[slides.length - 1];
@@ -102,7 +102,7 @@
             </div>
           </div>
         {:else}
-          <div class="mx-auto">
+          <div class="mx-auto md:px-48 sm:px-32">
             <img class="xl:w-640 lg:w-480" src={slide.path} alt={slide.id} />
           </div>
           <div class="flex flex-col">
