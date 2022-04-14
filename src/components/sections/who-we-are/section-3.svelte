@@ -23,7 +23,7 @@
     {#if contents.spans !== undefined}
       <div
         id="text-wrapper"
-        class="text-4xl font-bold px-168 py-200 text-center"
+        class="lg:text-4xl md:text-2xl sm:text-xl font-bold lg:px-24 md:px-64 sm:px-16 lg:py-168 md:py-120 sm:py-64 text-center"
       >
         <p class="">
           <span class="gradient-text-dark px-8">

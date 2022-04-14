@@ -18,7 +18,7 @@
 <SectionContainer>
   <div
     id="wrapper"
-    class="px-148 py-120 text-center text-2xl font-bold text-on-background-variant leading-lg"
+    class="lg:px-48 sm:px-16 py-48 text-center lg:text-2xl sm:text-xl font-bold text-on-background-variant lg:leading-lg sm:leading-lg"
   >
     {#each contents.headline as headline, i}
       {#if i < 2}
@@ -67,8 +67,8 @@
     z-index: -1;
     background: linear-gradient(
       to bottom right,
-      #0b1d2ec4 25%,
-      rgba(27, 50, 56, 0.493)
+      #0b1d2ee2 25%,
+      rgba(27, 50, 56, 0.668)
     );
   }
 </style>

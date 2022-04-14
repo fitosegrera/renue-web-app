@@ -1,7 +1,4 @@
 <script>
-  //CONTAINERS
-  import SectionContainer from "../../containers/section-two-cols.svelte";
-
   // LIBS
   import { onMount } from "svelte";
 

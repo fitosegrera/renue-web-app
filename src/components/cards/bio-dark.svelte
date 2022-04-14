@@ -36,7 +36,7 @@
       id="info-window"
       class="w-screen h-full bg-secondary-dark-alpha"
     >
-      <div class="flex w-full h-72 justify-end items-center px-64">
+      <div class="flex w-full h-72 justify-end items-center px-32">
         <div
           on:click={() => {
             isInfoVisible = false;
@@ -46,18 +46,20 @@
           <Icon icon="ant-design:close-square-outlined" />
         </div>
       </div>
-      <div class="flex px-96">
-        <div class="w-50 h-full px-72">
+      <div class="md:flex md:space-x-32 lg:px-72 md:px-32 sm:px-16">
+        <div class="xl:w-50 md:w-full h-full ">
           <!-- <div id={"image-container-" + identifier} class="w-full h-50" /> -->
-          <img class="w-full" src={img_url} alt="" />
-          <div class="text-2xl font-bold text-primary-light pt-32">
+          <img class="w-full mt-16" src={img_url} alt="" />
+          <div class="text-xl font-bold text-primary-light pt-32">
             <h1>{name}</h1>
           </div>
-          <div class="text-lg font-bold text-primary-light-variant pt-8">
+          <div class="text-lg font-bold text-primary-light-variant">
             <h1>{role}</h1>
           </div>
         </div>
-        <div class="w-100 px-72 text-lg text-on-background-variant">
+        <div
+          class="w-full text-lg text-on-background-variant md:pt-4 sm:pt-32 pb-72"
+        >
           <p>{bio}</p>
         </div>
       </div>
@@ -66,7 +68,7 @@
 
   <div
     id="card-wrapper"
-    class="w-full h-75 gradient-bg-secondary-main rounded-lg"
+    class="w-full h-full gradient-bg-secondary-main rounded-lg"
   >
     <div
       id="horizontal-spacer"
@@ -106,7 +108,7 @@
 
 <style>
   * {
-    overflow: hidden;
+    /* overflow: hidden; */
   }
 
   :root {
@@ -120,6 +122,7 @@
   #info-wrapper {
     position: absolute;
     bottom: 0;
+    left: 0;
   }
 
   #info-window {
@@ -142,5 +145,30 @@
     background-position: center;
     background-repeat: no-repeat;
     background-size: cover; */
+  }
+
+  #info-window::-webkit-scrollbar {
+    width: 24px;
+  }
+
+  /* Track */
+  #info-window::-webkit-scrollbar-track {
+    box-shadow: inset 0 0 5px grey;
+    border-radius: 10px;
+  }
+
+  /* Handle */
+  #info-window::-webkit-scrollbar-thumb {
+    background: linear-gradient(
+      45deg,
+      rgb(82, 235, 255),
+      rgba(168, 255, 128, 0.719)
+    );
+    border-radius: 10px;
+  }
+
+  /* Handle on hover */
+  #info-window::-webkit-scrollbar-thumb:hover {
+    background: linear-gradient(0deg, #6498a5, #063b48);
   }
 </style>

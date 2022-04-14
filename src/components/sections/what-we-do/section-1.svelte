@@ -21,7 +21,7 @@
       style={"background: linear-gradient(" +
         mapValue(y, 2500, 3000, 0, 180) +
         "deg, rgb(255, 255, 255), rgb(230, 255, 230));"}
-      class="text-3xl font-bold px-200 py-168 text-center"
+      class="xl:text-3xl lg:text-2xl md:text-xl sm:text-lg font-bold lg:px-72 md:px-48 sm:px-16 xl:py-120 md:py-72 sm:py-32 text-center"
     >
       <p class="">
         <span class="gradient-text-dark font-bold px-8">

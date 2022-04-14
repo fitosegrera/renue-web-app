@@ -1,3 +1,5 @@
-<div class="w-auto h-auto grid grid-cols-2 md:mx-72 gap-x-120">
+<div
+  class="w-auto h-auto grid lg:grid-cols-2 md:grid-cols-1 px-32 gap-x-120 sm:pb-72"
+>
   <slot />
 </div>

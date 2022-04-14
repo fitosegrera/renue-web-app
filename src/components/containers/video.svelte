@@ -1,4 +1,4 @@
-<main id="main-container" class="w-full gradient-bg-semidark-secondary py-80">
+<main id="main-container" class="w-full gradient-bg-semidark-secondary">
   <slot />
 </main>
 

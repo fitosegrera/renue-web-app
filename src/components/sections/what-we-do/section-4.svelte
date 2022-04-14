@@ -18,20 +18,20 @@
 
 <VideoContainer>
   <div
-    class="w-full h-full text-center text-2xl font-semibold px-168 gradient-text-extra-light"
+    class="w-full h-full text-center md:text-2xl sm:text-xl font-semibold px-16 gradient-text-extra-light"
   >
     <h1>{contents.headline}</h1>
   </div>
-  <div class="grid grid-cols-3 w-full h-full">
+  <div class="grid lg:grid-cols-3 md:grid-rows-3 w-full h-full">
     <div
-      class="col-span-2 flex items-center justify-center w-full h-full py-72"
+      class="lg:col-span-2 md:row-span-2 lg:row-span-3 flex items-center justify-center w-full h-full pt-16"
     >
       <video id="vid" loop width="1280" autoplay>
         <source src="/assets/videos/360.webm" type="video/webm" />
       </video>
     </div>
     <div
-      class="flex flex-col items-center justify-center w-full h-full pb-72 text-lg space-y-32"
+      class="flex flex-col lg:row-span-3 items-center justify-center w-full h-full text-lg space-y-32 sm:mb-64"
     >
       <div>
         <p class="gradient-text-extra-light">

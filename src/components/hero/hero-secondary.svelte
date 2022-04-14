@@ -17,20 +17,22 @@
   <div id="gradient">
     <div
       id="contents"
-      class="flex flex-col text-on-background-variant pt-240 xl:px-148 lg:px-96 md:px-72"
+      class="flex text-on-background-variant pt-240 lg:px-56 md:px-32 sm:px-16"
     >
       <div class="flex items-center space-x-24 h-auto">
         <div
           id="vertical-line"
-          class="w-24 h-300 gradient-blue-to-green-light-diagonal"
+          class="w-5 lg:h-292 md:h-240 sm:h-360 gradient-blue-to-green-light-diagonal"
         />
         <div>
           <div>
-            <h1 class="text-4xl font-bold leading-4xl">
+            <h1
+              class="lg:text-3xl md:text-2xl sm:text-2xl font-bold xl:leading-5xl md:leading-4xl sm:leading-lg w-full"
+            >
               {headline}
             </h1>
           </div>
-          <div class="lg:w-800 sm:w-520">
+          <div class="lg:w-75">
             {#if start != undefined}
               <h2 class="text-lg leading-md mt-16">
                 {paragraph.substring(0, start)}
@@ -42,7 +44,9 @@
                 </a>
               </h2>
             {:else}
-              <h2 class="text-lg leading-md mt-16">
+              <h2
+                class="mt-32 font-normal lg:text-lg md:text-md sm:text-md lg:leading-md sm:leading-sm"
+              >
                 {paragraph}
               </h2>
             {/if}
@@ -83,8 +87,8 @@
     z-index: -10;
     background: linear-gradient(
       to bottom right,
-      #0b1d2ee5 10%,
-      rgba(53, 53, 53, 0.199)
+      #0b1d2ef0 10%,
+      rgba(53, 53, 53, 0.414)
     );
   }
 

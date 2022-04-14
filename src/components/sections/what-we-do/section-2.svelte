@@ -1,37 +1,60 @@
 <script>
   //LIBS
-  import Icon from "@iconify/svelte";
   import { onMount } from "svelte";
 
-  //COMPONENTS
-  // import Button
+  //STORES
+  import { break_point } from "../../../stores/renuestore";
 
   //PROPS
   export let contents;
-  console.log("contents.", contents);
-  // console.log(Object.keys(contents[0].image).length === 0);
+  console.log(contents);
+
+  let mobileView = false;
+  let innerWidth;
+
+  const switchView = (e) => {
+    if (innerWidth <= $break_point) {
+      mobileView = true;
+    } else {
+      mobileView = false;
+    }
+  };
 
   onMount(async () => {
-    //await document.getElementById("vid").play();
+    if (innerWidth <= $break_point) {
+      mobileView = true;
+    } else {
+      mobileView = false;
+    }
+
+    console.log(innerWidth, mobileView);
+
+    const mediaListener = window.matchMedia(
+      "(max-width: " + $break_point + "px)"
+    );
+    mediaListener.addListener(switchView);
   });
 </script>
 
-{#await contents then items}
-  {#each items as item, i}
-    {#if item.title1.length > 0}
-      <div
-        class="w-full text-center font-bold text-xl gradient-text-extra-light pt-120 py-32 px-148"
-      >
-        <h1>{item.title1[0].text}</h1>
-      </div>
-    {/if}
-    <div
-      class="flex items-center justify-center w-full h-full space-x-32 py-56"
-    >
-      {#if item.orientation === "left"}
+<svelte:window bind:innerWidth />
+
+<!-- ==================================== -->
+<!-- ============ MOBILE VIEW =========== -->
+<!-- ==================================== -->
+{#if mobileView}
+  {#await contents then items}
+    {#each items as item, i}
+      {#if item.title1.length > 0}
+        <div
+          class="w-full text-center font-bold text-xl gradient-text-extra-light pt-120 py-32 px-32"
+        >
+          <h1>{item.title1[0].text}</h1>
+        </div>
+      {/if}
+      <div class="w-full h-full space-x-32 mt-32">
         <div>
           <video
-            id="vid"
+            id={"vid" + i}
             loop
             width="920"
             height="518"
@@ -41,11 +64,8 @@
             <source src="/assets/videos/scene-{i + 1}.webm" type="video/webm" />
           </video>
         </div>
-        <div class="w-35">
-          <div class="flex items-center space-x-16">
-            <!-- <div class="text-2xl text-primary-light">
-              <Icon icon="mdi:oil-level" />
-            </div> -->
+        <div class="w-full mt-48">
+          <div class="flex items-center px-16 space-x-16">
             <div>
               <h1 class="text-2xl font-semibold gradient-text-extra-light">
                 {item.headline[0].text}
@@ -59,7 +79,7 @@
                   <p>{i + 1}.</p>
                 </div>
                 <div
-                  class="w-620 text-lg text-on-background-variant mt-24 px-8 space-y-16"
+                  class="w-full text-lg text-on-background-variant pr-48 mt-24 space-y-16"
                 >
                   {#if item["attachment-1"].name !== undefined}
                     <p>
@@ -87,37 +107,8 @@
               {/if}
             </div>
           {/each}
-        </div>
-      {:else}
-        <div class="w-35">
-          <div class="flex items-center space-x-16">
-            <!-- <div class="text-2xl text-primary-light">
-              <Icon icon="mdi:oil-level" />
-            </div> -->
-            <div>
-              <h1 class="text-2xl font-semibold gradient-text-extra-light">
-                {item.headline[0].text}
-              </h1>
-            </div>
-          </div>
-          {#each item.information as info, i}
-            <div class="flex w-full items-center">
-              {#if info.text.length > 0}
-                <div class="text-xl font-bold text-primary-light w-56">
-                  <p>{i + 1}.</p>
-                </div>
-                <div>
-                  <p
-                    class="w-620 text-lg text-on-background-variant mt-16 px-8"
-                  >
-                    {info.text}
-                  </p>
-                </div>
-              {/if}
-            </div>
-          {/each}
           {#if Object.keys(item.image).length > 0}
-            <a href={item.image.url} target="__blank">
+            <a h48ref={item.image.url} target="__blank">
               <div
                 class="flex w-full items-center justify-start text-primary-light hover:text-secondary-main h-full my-32 space-x-8 cursor-pointer"
               >
@@ -131,19 +122,157 @@
             </a>
           {/if}
         </div>
-        <div>
-          <video id="vid" loop width="820" autoplay="autoplay" muted>
-            <source src="/assets/videos/scene-{i + 1}.webm" type="video/webm" />
-          </video>
+      </div>
+      {#if item["extra-information"].length > 0}
+        <div
+          class="w-full text-center font-bold text-xl gradient-text-extra-light pt-120 py-32 px-32"
+        >
+          <h1>{item["extra-information"][0].text}</h1>
         </div>
       {/if}
-    </div>
-    {#if item["extra-information"].length > 0}
+    {/each}
+  {/await}
+  <!-- ==================================== -->
+  <!-- =========== DESKTOP VIEW =========== -->
+  <!-- ==================================== -->
+{:else}
+  {#await contents then items}
+    {#each items as item, i}
+      {#if item.title1.length > 0}
+        <div
+          class="w-full text-center font-bold text-xl gradient-text-extra-light pt-120 py-32 xl:px-148 md:px-64"
+        >
+          <h1>{item.title1[0].text}</h1>
+        </div>
+      {/if}
       <div
-        class="w-full text-center font-bold text-xl gradient-text-extra-light pt-120 py-32 px-148"
+        class="flex items-center justify-center w-full h-full space-x-32 py-56 px-32"
       >
-        <h1>{item["extra-information"][0].text}</h1>
+        {#if item.orientation === "left"}
+          <div class="lg:w-50">
+            <video
+              id="vid"
+              loop
+              width="920"
+              height="518"
+              autoplay="autoplay"
+              muted
+            >
+              <source
+                src="/assets/videos/scene-{i + 1}.webm"
+                type="video/webm"
+              />
+            </video>
+          </div>
+          <div class="xl:w-35 md:w-50">
+            <div class="flex items-center space-x-16">
+              <!-- <div class="text-2xl text-primary-light">
+              <Icon icon="mdi:oil-level" />
+            </div> -->
+              <div>
+                <h1
+                  class="xl:text-2xl md:text-xl font-semibold gradient-text-extra-light"
+                >
+                  {item.headline[0].text}
+                </h1>
+              </div>
+            </div>
+            {#each item.information as info, i}
+              <div class="flex w-full items-center">
+                {#if info.text.length > 0}
+                  <div class="text-xl font-bold text-primary-light w-56">
+                    <p>{i + 1}.</p>
+                  </div>
+                  <div
+                    class="w-620 text-lg text-on-background-variant mt-24 px-8 space-y-16"
+                  >
+                    {#if item["attachment-1"].name !== undefined}
+                      <p>
+                        {info.text.split("%%")[0]}
+                      </p>
+                      <p class="italic">
+                        {info.text.split("%%")[1]}
+                      </p>
+
+                      <div
+                        class="flex w-full items-center justify-start text-primary-light hover:text-secondary-main h-full my-32 space-x-8 cursor-pointer font-semibold"
+                      >
+                        <a
+                          class=""
+                          href={item["attachment-1"].url}
+                          target="__blank">Read Document</a
+                        >
+                      </div>
+                    {:else}
+                      <p>
+                        {info.text}
+                      </p>
+                    {/if}
+                  </div>
+                {/if}
+              </div>
+            {/each}
+          </div>
+        {:else}
+          <div class="w-35">
+            <div class="flex items-center space-x-16">
+              <!-- <div class="text-2xl text-primary-light">
+              <Icon icon="mdi:oil-level" />
+            </div> -->
+              <div>
+                <h1 class="text-2xl font-semibold gradient-text-extra-light">
+                  {item.headline[0].text}
+                </h1>
+              </div>
+            </div>
+            {#each item.information as info, i}
+              <div class="flex w-full items-center">
+                {#if info.text.length > 0}
+                  <div class="text-xl font-bold text-primary-light w-56">
+                    <p>{i + 1}.</p>
+                  </div>
+                  <div>
+                    <p
+                      class="w-620 text-lg text-on-background-variant mt-16 px-8"
+                    >
+                      {info.text}
+                    </p>
+                  </div>
+                {/if}
+              </div>
+            {/each}
+            {#if Object.keys(item.image).length > 0}
+              <a href={item.image.url} target="__blank">
+                <div
+                  class="flex w-full items-center justify-start text-primary-light hover:text-secondary-main h-full my-32 space-x-8 cursor-pointer"
+                >
+                  <!-- <div class=" text-2xl font-bold">
+                  <Icon icon="ant-design:area-chart-outlined" />
+                </div> -->
+                  <div class="text-lg font-bold ">
+                    <h2>{item.image.alt}</h2>
+                  </div>
+                </div>
+              </a>
+            {/if}
+          </div>
+          <div class="lg:w-50">
+            <video id="vid" loop width="820" autoplay="autoplay" muted>
+              <source
+                src="/assets/videos/scene-{i + 1}.webm"
+                type="video/webm"
+              />
+            </video>
+          </div>
+        {/if}
       </div>
-    {/if}
-  {/each}
-{/await}
+      {#if item["extra-information"].length > 0}
+        <div
+          class="w-full text-center font-bold text-xl gradient-text-extra-light pt-120 py-32 px-148"
+        >
+          <h1>{item["extra-information"][0].text}</h1>
+        </div>
+      {/if}
+    {/each}
+  {/await}
+{/if}

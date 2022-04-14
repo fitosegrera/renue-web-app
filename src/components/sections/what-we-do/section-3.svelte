@@ -28,7 +28,7 @@
       class="flex flex-col mx-auto px-32 w-full text-on-background-variant text-center"
     >
       <div
-        class="flex flex-col items-center justify-center text-2xl font-bold text-center space-y-32"
+        class="flex flex-col items-center justify-center text-2xl font-bold space-y-32"
       >
         {#if item.thumbnail.url !== undefined}
           <div
@@ -38,12 +38,12 @@
             <img src={item.thumbnail.url} alt="" />
           </div>
         {/if}
-        <div class="w-full">
+        <div class="w-full xl:h-148 md:h-132 xl:text-xl lg:text-xl">
           <h1 class="gradient-text-light">{item.headline[0].text}</h1>
         </div>
       </div>
       <div>
-        <p class="text-lg leading-sm px-72 py-16">
+        <p class="text-lg leading-sm py-16">
           {item.paragraph[0].text}
         </p>
       </div>
@@ -54,6 +54,9 @@
 </SectionContainer>
 
 <style>
+  * {
+    overflow: hidden;
+  }
   #img-container {
     width: 100%;
     height: 320px;
