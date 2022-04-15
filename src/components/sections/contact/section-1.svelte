@@ -102,12 +102,12 @@
 </script>
 
 <SectionContainer background={contents.background.url}>
-  <div class="relative w-800 mx-auto">
+  <div class="relative lg:w-800 md:w-640 sm:w-360 mx-auto">
     <div
       id="wrapper"
-      class="w-800 md:text-2xl md:leading-2xl text-on-background-variant text-left font-bold"
+      class="w-auto lg:text-2xl md:text-xl sm:text-2lg lg:leading-2xl md:leading-xl sm:leading-2lg text-on-background-variant text-left font-bold"
     >
-      <div class="w-100 h-full">
+      <div class="w-full h-full px-16">
         <h1>
           {contents.heading.substring(0, contents.start)}
           <a href="mailto:cnieto@renueenviro.com" class="text-primary-main">
@@ -118,14 +118,16 @@
       </div>
     </div>
     <div
-      class="w-800 md:text-lg md:leading-xl text-on-background-variant text-left pt-168"
+      class="w-full md:text-lg md:leading-xl text-on-background-variant text-left pt-240"
     >
-      <div class="w-100 h-full">
+      <div class="w-100 h-full px-16">
         <p>{contents.instructions}</p>
       </div>
     </div>
     <form on:submit|preventDefault={onSubmit}>
-      <div class="grid grid-flow-col justify-items-center my-24 gap-32">
+      <div
+        class="px-16 grid lg:grid-flow-col md:grid-flow-row justify-items-center my-24 gap-32"
+      >
         <div class="w-full">
           <TextInputDarkSm
             id="first_name"
@@ -143,7 +145,7 @@
           />
         </div>
       </div>
-      <div class="my-24">
+      <div class="my-24 px-16">
         <div class="w-full">
           <TextInputDarkLg
             id="email"
@@ -153,7 +155,9 @@
           />
         </div>
       </div>
-      <div class="grid grid-flow-col justify-items-center my-24 gap-32">
+      <div
+        class="px-16 grid md:grid-flow-col sm:grid-flow-row justify-items-center my-24 gap-32"
+      >
         <div class="w-full">
           <PhoneInputDarkSm
             id="phone"
@@ -171,7 +175,7 @@
           />
         </div>
       </div>
-      <div>
+      <div class="px-16">
         <TextAreaDarkLg
           id="message"
           label="Message *"
@@ -180,7 +184,7 @@
           cols="50"
         />
       </div>
-      <div class="flex mt-56 justify-end">
+      <div class="px-16 flex mt-56 justify-end">
         <!-- <Button
           type="submit"
           icon_label="bi:send"

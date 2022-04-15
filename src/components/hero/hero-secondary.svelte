@@ -22,7 +22,7 @@
       <div class="flex items-center space-x-24 h-auto">
         <div
           id="vertical-line"
-          class="w-5 lg:h-292 md:h-240 sm:h-360 gradient-blue-to-green-light-diagonal"
+          class="sm:w-20 md:w-5 xl:w-2 lg:h-292 md:h-240 sm:h-360 gradient-blue-to-green-light-diagonal"
         />
         <div>
           <div>
@@ -32,7 +32,7 @@
               {headline}
             </h1>
           </div>
-          <div class="lg:w-75">
+          <div class="lg:w-75 sm:w-full">
             {#if start != undefined}
               <h2 class="text-lg leading-md mt-16">
                 {paragraph.substring(0, start)}

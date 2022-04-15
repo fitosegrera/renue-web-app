@@ -6,18 +6,20 @@
   import Button from "../../buttons/lg-primary-icon-fill.svelte";
 
   //PROPS
-  export let contents;
-  // console.log("XXXX", contents);
+  export let data;
+  //console.log(data);
 </script>
 
 <SectionContainer>
-  <div class="flex flex-col justify-center w-full text-center py-120">
-    <h1 class="text-2xl font-bold text-on-background-variant mb-56">
-      {contents.headline.slice(0, contents.start)}
+  <div class="flex flex-col justify-center w-full text-center py-120 sm:px-16">
+    <h1
+      class="md:text-2xl sm:text-xl font-bold text-on-background-variant mb-56"
+    >
+      {data.headline.slice(0, data.start)}
       <span class="text-primary-main font-bold"
-        >{contents.headline.slice(contents.start, contents.end)}</span
+        >{data.headline.slice(data.start, data.end)}</span
       >
-      {contents.headline.slice(contents.end)}
+      {data.headline.slice(data.end)}
     </h1>
     <div class="w-auto mx-auto">
       <Button icon_label="ic:outline-eco" label="Get Started" url="/contact" />

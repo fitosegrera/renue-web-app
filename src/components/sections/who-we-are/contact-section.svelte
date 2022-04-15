@@ -7,12 +7,13 @@
 
   //PROPS
   export let data;
-  //console.log("XXXX", data);
 </script>
 
 <SectionContainer>
   <div class="flex flex-col justify-center w-full text-center py-120 sm:px-16">
-    <h1 class="text-2xl font-bold text-on-background-variant mb-56">
+    <h1
+      class="md:text-2xl sm:text-xl font-bold text-on-background-variant mb-56"
+    >
       {data.headline.slice(0, data.start)}
       <span class="text-primary-main font-bold"
         >{data.headline.slice(data.start, data.end)}</span

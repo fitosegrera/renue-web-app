@@ -52,7 +52,7 @@
           }
 
           if (section.slice_type === "section-1") {
-            console.log(section);
+            //console.log(section);
             await section.items.forEach((item) => {
               //console.log("ITEM", item);
               section_1_data.push(item);
@@ -123,6 +123,6 @@
   <h1 class="text-secondary text-8xl mt-72">Loading...</h1>
 {:then data}
   {#if data !== undefined}
-    <ContactSection contents={data} />
+    <ContactSection {data} />
   {/if}
 {/await}

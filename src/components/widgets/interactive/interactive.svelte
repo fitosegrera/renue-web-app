@@ -76,7 +76,7 @@
   >
     <!-- TOP ROW -->
     <div
-      class="flex my-auto row-span-1 xl:text-4xl md:text-xl sm:text-lg font-bold lg:px-32"
+      class="flex my-auto row-span-1 xl:text-4xl md:text-xl sm:text-md font-bold lg:px-32"
     >
       <div
         class="flex items-center justify-center w-full text-center lg:space-x-64 md:space-x-16 sm:space-x-12"
@@ -138,7 +138,9 @@
                   id="text-bar"
                   class="py-32 w-16 gradient-blue-to-green-light-diagonal"
                 />
-                <p class="text-on-background-variant text-lg px-32 w-full">
+                <p
+                  class="text-on-background-variant md:text-lg sm:text-md px-16 w-full"
+                >
                   {item.paragraph}
                 </p>
               </div>
@@ -192,7 +194,7 @@
           >
             <div
               id="overlay"
-              class="flex flex-col xl:w-960 lg:w-720 md:w-520 text-lg space-y-24 py-320 pr-32 xl:pl-200 lg:pl-168 md:pl-320"
+              class="flex flex-col xl:w-960 lg:w-720 md:w-520 text-lg space-y-24 py-320 px-32"
             >
               <div
                 id="title"
@@ -211,7 +213,9 @@
                   id="text-bar"
                   class="py-32 w-16 gradient-blue-to-green-light-diagonal"
                 />
-                <p class="text-on-background-variant text-lg px-32 w-full">
+                <p
+                  class="text-on-background-variant text-lg px-32 lg:w-85 sm:w-90"
+                >
                   {item.paragraph}
                 </p>
               </div>

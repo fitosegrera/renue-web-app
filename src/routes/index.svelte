@@ -48,8 +48,8 @@
         //console.log(result.data.body);
         result.data.body.forEach((section, j) => {
           if (section.slice_type === "hero-section") {
-            //console.log(section.primary.subheading[0].spans[0].start);
-            hero_data.imageUrl = section.primary["bg-image"].url;
+            //console.log(section);
+            hero_data.imageUrl = section.primary["background-image"].url;
             hero_data.heading = section.primary.heading[0].text;
             hero_data.paragraph = section.primary.paragraph[0].text;
             hero_data.subheading = section.primary.subheading[0].text;

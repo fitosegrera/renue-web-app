@@ -38,12 +38,6 @@
           {/each}
         </div>
       {/if}
-      <!-- <a class="block text-line-through-animation" href="/">HOME</a>
-      <a class="block text-line-through-animation" href="/about">ABOUT</a>
-      <a class="block text-line-through-animation" href="/">WHITE-PAPER</a>
-      <a class="block text-line-through-animation" href="/explorer">EXPLORER</a>
-      <a class="block text-line-through-animation" href="/">TWITTER</a>
-      <a class="block text-line-through-animation" href="/">DISCORD</a> -->
     </nav>
   </aside>
 {/await}

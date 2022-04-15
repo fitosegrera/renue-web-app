@@ -88,7 +88,9 @@
         {/if}
       {/if}
     </div>
-    <div class="flex items-center xl:space-x-48 sm:space-x-32 text-2xl">
+    <div
+      class="flex items-center xl:space-x-48 sm:space-x-24 md:text-2xl sm:text-xl"
+    >
       {#if socialItems.length > 0}
         {#each socialItems as item}
           <a href="">

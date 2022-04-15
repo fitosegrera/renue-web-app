@@ -13,7 +13,7 @@
   });
 </script>
 
-<main id="main-container" class="w-full bg-transparent py-168">
+<main id="main-container" class="w-full bg-transparent lg:py-168 sm:py-120">
   <slot />
 </main>
 

@@ -18,15 +18,15 @@
 <SectionContainer>
   <div
     id="wrapper"
-    class="lg:px-48 sm:px-16 py-48 text-center lg:text-2xl sm:text-xl font-bold text-on-background-variant lg:leading-lg sm:leading-lg"
+    class="lg:px-48 sm:px-16 md:py-48 text-center lg:text-2xl md:text-xl sm:text-lg font-bold text-on-background-variant md:leading-lg sm:leading-md"
   >
     {#each contents.headline as headline, i}
       {#if i < 2}
-        <div class="my-72">
+        <div class="md:pt-72 sm:pt-48">
           <h1>{headline.text}</h1>
         </div>
       {:else}
-        <div class="my-72">
+        <div class="md:py-72 sm:py-48">
           <h1>
             {headline.text.slice(0, contents.spans[0].start)}
             <span class="text-primary-main">

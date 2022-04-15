@@ -7,7 +7,7 @@
     <label for={id}>{label}</label>
   </div>
 
-  <div class="relative flex w-full h-64 flex-col items-center">
+  <div class="relative flex w-full h-64 flex-col items-left">
     <input
       {id}
       {type}

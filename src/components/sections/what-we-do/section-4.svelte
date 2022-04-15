@@ -18,15 +18,15 @@
 
 <VideoContainer>
   <div
-    class="w-full h-full text-center md:text-2xl sm:text-xl font-semibold px-16 gradient-text-extra-light"
+    class="w-full h-full text-center md:text-xl sm:text-lg font-semibold sm:px-16 lg:px-72 lg:py-64 md:py-32 text-primary-light-variant"
   >
     <h1>{contents.headline}</h1>
   </div>
   <div class="grid lg:grid-cols-3 md:grid-rows-3 w-full h-full">
     <div
-      class="lg:col-span-2 md:row-span-2 lg:row-span-3 flex items-center justify-center w-full h-full pt-16"
+      class="lg:col-span-2 md:row-span-2 lg:row-span-3 flex items-center justify-center w-full h-full pt-32"
     >
-      <video id="vid" loop width="1280" autoplay>
+      <video id="vid" loop width="1280" autoplay mute>
         <source src="/assets/videos/360.webm" type="video/webm" />
       </video>
     </div>

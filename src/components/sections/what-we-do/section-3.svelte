@@ -25,7 +25,7 @@
 
   {#each contents as item}
     <div
-      class="flex flex-col mx-auto px-32 w-full text-on-background-variant text-center"
+      class="flex flex-col mx-auto md:px-32 w-full text-on-background-variant text-center mt-32"
     >
       <div
         class="flex flex-col items-center justify-center text-2xl font-bold space-y-32"
@@ -33,17 +33,18 @@
         {#if item.thumbnail.url !== undefined}
           <div
             id="img-container"
-            class="flex items-center text-6xl text-secondary-light h-364 mx-72 overflow-hidden rounded-xl"
+            class="flex items-center text-6xl text-secondary-light sm:h-200 md:h-320 mx-72 overflow-hidden rounded-xl"
+            style="background-image: url({item.thumbnail.url});"
           >
-            <img src={item.thumbnail.url} alt="" />
+            <!-- <img src={item.thumbnail.url} alt="" /> -->
           </div>
         {/if}
-        <div class="w-full xl:h-148 md:h-132 xl:text-xl lg:text-xl">
+        <div class="w-full xl:h-148 md:h-132 lg:text-xl sm:text-2lg">
           <h1 class="gradient-text-light">{item.headline[0].text}</h1>
         </div>
       </div>
       <div>
-        <p class="text-lg leading-sm py-16">
+        <p class="md:text-lg sm:text-md leading-md pt-16">
           {item.paragraph[0].text}
         </p>
       </div>
@@ -59,7 +60,8 @@
   }
   #img-container {
     width: 100%;
-    height: 320px;
+    background-repeat: no-repeat;
+    background-position: center;
     background-size: cover;
   }
 </style>

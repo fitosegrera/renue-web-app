@@ -19,11 +19,13 @@
 <svelte:window bind:scrollY={y} />
 
 <SectionContainer>
-  <div class="relative w-full h-full">
+  <div
+    class="relative w-full h-full sm:px-4 md:px-24 lg:px-32 sm:py-72 md:py-120 xl:py-168"
+  >
     {#if contents.spans !== undefined}
       <div
         id="text-wrapper"
-        class="lg:text-4xl md:text-2xl sm:text-xl font-bold lg:px-24 md:px-64 sm:px-16 lg:py-168 md:py-120 sm:py-64 text-center"
+        class="xl:text-3xl lg:text-2xl md:text-xl sm:text-2lg xl:leading-5xl md:leading-3xl sm:leading-2md font-bold text-center"
       >
         <p class="">
           <span class="gradient-text-dark px-8">

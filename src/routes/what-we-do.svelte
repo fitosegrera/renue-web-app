@@ -185,6 +185,6 @@
   <h1 class="text-secondary text-8xl mt-72">Loading...</h1>
 {:then data}
   {#if data !== undefined}
-    <ContactSection contents={data} />
+    <ContactSection {data} />
   {/if}
 {/await}

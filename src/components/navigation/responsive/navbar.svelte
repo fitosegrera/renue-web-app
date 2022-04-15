@@ -49,7 +49,11 @@
       <div class="flex-grow h-full items-center space-x-16 text-textColorDark">
         <a class="" href="/">
           {#if navBarItems.logo !== undefined}
-            <img src={navBarItems.logo.url} alt="Renue Logo" class="w-200" />
+            <img
+              src={navBarItems.logo.url}
+              alt="Renue Logo"
+              class="md:w-200 sm:w-168"
+            />
           {/if}
         </a>
       </div>

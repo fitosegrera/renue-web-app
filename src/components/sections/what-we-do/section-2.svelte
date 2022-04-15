@@ -46,12 +46,12 @@
     {#each items as item, i}
       {#if item.title1.length > 0}
         <div
-          class="w-full text-center font-bold text-xl gradient-text-extra-light pt-120 py-32 px-32"
+          class="w-full text-center font-bold text-lg gradient-text-extra-light pt-72 py-32 px-32"
         >
           <h1>{item.title1[0].text}</h1>
         </div>
       {/if}
-      <div class="w-full h-full space-x-32 mt-32">
+      <div class="w-full h-full mt-32">
         <div>
           <video
             id={"vid" + i}
@@ -65,9 +65,9 @@
           </video>
         </div>
         <div class="w-full mt-48">
-          <div class="flex items-center px-16 space-x-16">
+          <div class="flex items-center px-32 space-x-16">
             <div>
-              <h1 class="text-2xl font-semibold gradient-text-extra-light">
+              <h1 class="text-2lg font-semibold gradient-text-extra-light">
                 {item.headline[0].text}
               </h1>
             </div>
@@ -75,11 +75,11 @@
           {#each item.information as info, i}
             <div class="flex w-full items-center">
               {#if info.text.length > 0}
-                <div class="text-xl font-bold text-primary-light w-56">
+                <div class="text-2lg font-bold text-primary-light w-56 px-8">
                   <p>{i + 1}.</p>
                 </div>
                 <div
-                  class="w-full text-lg text-on-background-variant pr-48 mt-24 space-y-16"
+                  class="w-full text-md text-on-background-variant px-8 mt-24 space-y-16"
                 >
                   {#if item["attachment-1"].name !== undefined}
                     <p>
@@ -110,7 +110,7 @@
           {#if Object.keys(item.image).length > 0}
             <a h48ref={item.image.url} target="__blank">
               <div
-                class="flex w-full items-center justify-start text-primary-light hover:text-secondary-main h-full my-32 space-x-8 cursor-pointer"
+                class="flex w-full items-center justify-start text-primary-light hover:text-secondary-main h-full my-32 px-32 cursor-pointer"
               >
                 <!-- <div class=" text-2xl font-bold">
                   <Icon icon="ant-design:area-chart-outlined" />
@@ -125,7 +125,7 @@
       </div>
       {#if item["extra-information"].length > 0}
         <div
-          class="w-full text-center font-bold text-xl gradient-text-extra-light pt-120 py-32 px-32"
+          class="w-full text-center font-bold text-lg text-primary-light-variant mt-48 py-32 px-24"
         >
           <h1>{item["extra-information"][0].text}</h1>
         </div>

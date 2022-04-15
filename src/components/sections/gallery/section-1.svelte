@@ -22,27 +22,28 @@
           {#if item.image.url !== undefined}
             <div
               id="img-container"
-              class="flex items-center text-6xl text-secondary-light h-320  overflow-hidden rounded-xl"
+              class="w-full h-320 overflow-hidden rounded-xl"
+              style="background-image: url({item.image.url});"
             >
-              <img src={item.image.url} alt="" />
+              <!-- <img src={item.image.url} alt="" /> -->
             </div>
           {:else}
             <div
               class="flex items-center w-full justify-center h-320 overflow-hidden rounded-xl"
             >
-              <video id="vid" loop width="920" height="518" autoplay="autoplay">
+              <video id="vid" loop width="920" height="518" autoplay mute>
                 <source src="/assets/videos/oil.webm" type="video/webm" />
               </video>
             </div>
           {/if}
-          <div class="w-full md:h-96 sm:h-120 leading-lg">
-            <h1 class="gradient-text-light text-xl">
+          <div class="w-full sm:h-auto lg:h-120 sm:py-16 md:py-0 sm:leading-lg">
+            <h1 class="gradient-text-light sm:text-2lg md:text-2lg">
               {item.headline[0].text}
             </h1>
           </div>
         </div>
-        <div class="md:h-240">
-          <p class="text-lg leading-sm px-72 py-16">
+        <div class="lg:h-200 sm:h-auto w-full">
+          <p class="sm:text-md leading-sm sm:px-8 lg:px-32 py-16">
             {item.paragraph[0].text}
           </p>
         </div>
@@ -66,8 +67,8 @@
   }
 
   #img-container {
-    /* background-repeat: no-repeat;
+    background-repeat: no-repeat;
     background-position: center;
-    background-size: cover; */
+    background-size: cover;
   }
 </style>
