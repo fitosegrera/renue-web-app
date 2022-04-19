@@ -6,7 +6,7 @@ let camera = new THREE.PerspectiveCamera(
   45,
   window.innerWidth / window.innerHeight,
   1,
-  2000
+  3000
 );
 camera.position.set(15, 450, 1100);
 camera.rotation.y = -Math.PI / 1010;

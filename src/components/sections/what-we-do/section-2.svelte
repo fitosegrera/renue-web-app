@@ -53,16 +53,29 @@
       {/if}
       <div class="w-full h-full mt-32">
         <div>
-          <video
-            id={"vid" + i}
-            loop
-            width="920"
-            height="518"
-            autoplay="autoplay"
-            muted
-          >
-            <source src="/assets/videos/scene-{i + 1}.webm" type="video/webm" />
-          </video>
+          {#if Object.keys(item.image).length === 0}
+            <video
+              id="vid"
+              loop
+              width="920"
+              height="518"
+              autoplay="autoplay"
+              muted
+            >
+              <source
+                src="/assets/videos/scene-{i + 1}.webm"
+                type="video/webm"
+              />
+            </video>
+          {:else}
+            <div class="flex w-full justify-center">
+              <img
+                class="max-h-620"
+                src={item.image.url}
+                alt={item.image.alt}
+              />
+            </div>
+          {/if}
         </div>
         <div class="w-full mt-48">
           <div class="flex items-center px-32 space-x-16">
@@ -107,16 +120,13 @@
               {/if}
             </div>
           {/each}
-          {#if Object.keys(item.image).length > 0}
-            <a h48ref={item.image.url} target="__blank">
+          {#if Object.keys(item.attachment).length > 0}
+            <a href={item.attachment.url} target="__blank">
               <div
                 class="flex w-full items-center justify-start text-primary-light hover:text-secondary-main h-full my-32 px-32 cursor-pointer"
               >
-                <!-- <div class=" text-2xl font-bold">
-                  <Icon icon="ant-design:area-chart-outlined" />
-                </div> -->
                 <div class="text-lg font-bold ">
-                  <h2>{item.image.alt}</h2>
+                  <h2>{item.attachment.alt}</h2>
                 </div>
               </div>
             </a>
@@ -149,21 +159,27 @@
         class="flex items-center justify-center w-full h-full space-x-32 py-56 px-32"
       >
         {#if item.orientation === "left"}
-          <div class="lg:w-50">
-            <video
-              id="vid"
-              loop
-              width="920"
-              height="518"
-              autoplay="autoplay"
-              muted
-            >
-              <source
-                src="/assets/videos/scene-{i + 1}.webm"
-                type="video/webm"
-              />
-            </video>
-          </div>
+          {#if Object.keys(item.image).length === 0}
+            <div class="lg:w-50">
+              <video
+                id="vid"
+                loop
+                width="920"
+                height="518"
+                autoplay="autoplay"
+                muted
+              >
+                <source
+                  src="/assets/videos/scene-{i + 1}.webm"
+                  type="video/webm"
+                />
+              </video>
+            </div>
+          {:else}
+            <div class="lg:w-50">
+              <img class="w-75" src={item.image.url} alt={item.image.alt} />
+            </div>
+          {/if}
           <div class="xl:w-35 md:w-50">
             <div class="flex items-center space-x-16">
               <!-- <div class="text-2xl text-primary-light">
@@ -241,8 +257,8 @@
                 {/if}
               </div>
             {/each}
-            {#if Object.keys(item.image).length > 0}
-              <a href={item.image.url} target="__blank">
+            {#if Object.keys(item.attachment).length > 0}
+              <a href={item.attachment.url} target="__blank">
                 <div
                   class="flex w-full items-center justify-start text-primary-light hover:text-secondary-main h-full my-32 space-x-8 cursor-pointer"
                 >
@@ -250,7 +266,7 @@
                   <Icon icon="ant-design:area-chart-outlined" />
                 </div> -->
                   <div class="text-lg font-bold ">
-                    <h2>{item.image.alt}</h2>
+                    <h2>{item.attachment.alt}</h2>
                   </div>
                 </div>
               </a>

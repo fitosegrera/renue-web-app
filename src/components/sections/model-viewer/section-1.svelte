@@ -32,15 +32,10 @@
 </script>
 
 <div class="relative w-full h-full">
-  <div id="blocker" class="flex flex-col w-full h-full px-168 pt-120">
-    <div class="w-full h-240 mx-auto px-120">
-      <h1
-        class="text-2xl leading-11 text-center font-semibold text-on-background-variant "
-      >
-        {contents.headline}
-      </h1>
-    </div>
-
+  <div
+    id="blocker"
+    class="flex flex-col w-full h-full lg:px-120 md:px-32 sm:px-16 pt-72"
+  >
     <div
       class="flex flex-col items-center w-full h-520 mx-auto space-x-32 py-32"
     >
@@ -61,30 +56,32 @@
       </div>
       <div
         id="loader"
-        class="flex w-full h-full text-lg justify-center text-on-background-variant"
+        class="flex w-full h-full md:text-lg sm:text-md justify-center text-on-background-variant"
       />
     </div>
     <div class="w-full h-full mx-auto text-center text-on-background-variant">
       <div>
-        <h2 class="text-2xl font-semibold">{contents.instructions[0].text}</h2>
+        <h2 class="lg:text-2xl sm:text-2lg font-semibold">
+          {contents.instructions[0].text}
+        </h2>
       </div>
       <div class="flex items-center justify-center space-x-12 mt-48">
-        <div class="text-primary-light text-lg">
+        <div class="text-primary-light md:text-lg sm:text-sm">
           <Icon icon="mdi:rotate-3d" />
         </div>
-        <p class="text-lg">{contents.instructions[1].text}</p>
+        <p class="md:text-lg sm:text-sm">{contents.instructions[1].text}</p>
       </div>
       <div class="flex items-center justify-center space-x-12">
         <div class="text-primary-light text-lg">
           <Icon icon="ri:drag-move-2-fill" />
         </div>
-        <p class="text-lg">{contents.instructions[2].text}</p>
+        <p class="md:text-lg sm:text-sm">{contents.instructions[2].text}</p>
       </div>
       <div class="flex items-center justify-center space-x-12">
         <div class="text-primary-light text-lg">
           <Icon icon="iconoir:mouse-scroll-wheel" />
         </div>
-        <p class="text-lg">{contents.instructions[3].text}</p>
+        <p class="md:text-lg sm:text-sm">{contents.instructions[3].text}</p>
       </div>
       <div
         on:click={handleOkClick}
