@@ -9,9 +9,9 @@
   //COMPONENTS
 
   //SECTIONS
-  import HeroSection from "../components/sections/gallery/hero-section.svelte";
-  import Section1 from "../components/sections/gallery/section-1.svelte";
-  import ContactSection from "../components/sections/gallery/contact-section.svelte";
+  import HeroSection from "../components/sections/insights/hero-section.svelte";
+  import Section1 from "../components/sections/insights/section-1.svelte";
+  import ContactSection from "../components/sections/insights/contact-section.svelte";
 
   let heroData, contactData;
   let section1Data;

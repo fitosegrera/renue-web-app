@@ -88,14 +88,14 @@
             on:mouseleave={() => handleMouseLeave(item.id)}
           >
             <h1
-              class="w-full md:pl-24 sm:pl-8 gradient-text-blue-to-green-vertical"
+              class="w-full md:pl-24 sm:pl-8 text-on-background-variant hover:text-primary-main hover:cursor-pointer"
             >
               {item.label}
             </h1>
             {#if item.visible}
               <div
                 id={item.id}
-                class="absolute md:w-16 sm:w-4 md:h-48 sm:h-24 gradient-blue-to-green-light-diagonal"
+                class="absolute md:w-16 sm:w-4 md:h-48 sm:h-24 bg-primary-main"
                 transition:scale={{ start: 0.1, duration: 300 }}
               />
             {:else}
@@ -134,10 +134,7 @@
                 id="text-wrapper"
                 class="flex w-auto h-auto text-on-background-variant"
               >
-                <div
-                  id="text-bar"
-                  class="py-32 w-16 gradient-blue-to-green-light-diagonal"
-                />
+                <div id="text-bar" class="py-32 w-16 bg-primary-main" />
                 <p
                   class="text-on-background-variant md:text-lg sm:text-md px-16 w-full"
                 >
@@ -170,13 +167,15 @@
             {#if item.visible}
               <div
                 id={item.id}
-                class="absolute w-16 h-64 gradient-blue-to-green-light-diagonal"
+                class="absolute w-16 h-64 bg-primary-main"
                 transition:scale={{ start: 0.1, duration: 300 }}
               />
             {:else}
               <div id={item.id} class="absolute w-16 h-64 bg-transparent" />
             {/if}
-            <h1 class="px-16 gradient-text-blue-to-green-vertical">
+            <h1
+              class="px-16 text-on-background-variant hover:text-primary-main hover:cursor-pointer"
+            >
               {item.label}
             </h1>
           </div>
@@ -189,12 +188,12 @@
         {#if item.visible}
           <div
             id="slide"
-            class="xl:w-960 lg:w-720 md:w-520 h-720"
+            class="xl:w-full lg:w-720 md:w-520 h-720"
             transition:fly={{ x: 800, duration: 1000 }}
           >
             <div
               id="overlay"
-              class="flex flex-col xl:w-960 lg:w-720 md:w-520 text-lg space-y-24 py-320 px-32"
+              class="flex flex-col xl:w-full lg:w-720 md:w-520 text-lg space-y-24 py-320 px-32"
             >
               <div
                 id="title"
@@ -209,10 +208,7 @@
                 id="text-wrapper"
                 class="flex w-auto h-auto text-on-background-variant"
               >
-                <div
-                  id="text-bar"
-                  class="py-32 w-16 gradient-blue-to-green-light-diagonal"
-                />
+                <div id="text-bar" class="py-32 w-16 bg-primary-main" />
                 <p
                   class="text-on-background-variant text-lg px-32 lg:w-85 sm:w-90"
                 >
@@ -220,7 +216,7 @@
                 </p>
               </div>
             </div>
-            <div class="xl:w-960 lg:w-720 md:w-520" id="img-container" />
+            <div class="xl:w-full lg:w-720 md:w-520" id="img-container" />
           </div>
         {/if}
       {/each}

@@ -27,7 +27,7 @@
         <span class="gradient-text-dark font-bold px-8">
           {contents.headline.slice(0, contents.spans[0].start)}
         </span>
-        <span class="gradient-text-dark-variant font-bold italic px-8"
+        <span class="text-primary-main font-bold italic px-8"
           >{contents.headline.slice(
             contents.spans[0].start,
             contents.spans[0].end
@@ -39,7 +39,7 @@
             contents.spans[1].start
           )}
         </span>
-        <span class="gradient-text-dark-variant font-bold italic px-8"
+        <span class="text-primary-main font-bold italic px-8"
           >{contents.headline.slice(
             contents.spans[1].start,
             contents.spans[1].end
@@ -51,7 +51,7 @@
             contents.spans[2].start
           )}
         </span>
-        <span class="gradient-text-dark-variant font-bold italic px-8"
+        <span class="text-primary-main font-bold italic px-8"
           >{contents.headline.slice(
             contents.spans[2].start,
             contents.spans[2].end
@@ -63,7 +63,7 @@
             contents.spans[3].start
           )}
         </span>
-        <span class="gradient-text-dark-variant font-bold italic px-8"
+        <span class="text-primary-main font-bold italic px-8"
           >{contents.headline.slice(
             contents.spans[3].start,
             contents.spans[3].end

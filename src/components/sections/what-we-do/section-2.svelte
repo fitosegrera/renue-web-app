@@ -46,7 +46,7 @@
     {#each items as item, i}
       {#if item.title1.length > 0}
         <div
-          class="w-full text-center font-bold text-lg gradient-text-extra-light pt-72 py-32 px-32"
+          class="w-full text-center font-bold text-lg gradient-text-extra-light py-32 px-32"
         >
           <h1>{item.title1[0].text}</h1>
         </div>
@@ -230,7 +230,7 @@
             {/each}
           </div>
         {:else}
-          <div class="w-35">
+          <div class="">
             <div class="flex items-center space-x-16">
               <!-- <div class="text-2xl text-primary-light">
               <Icon icon="mdi:oil-level" />
@@ -244,12 +244,14 @@
             {#each item.information as info, i}
               <div class="flex w-full items-center">
                 {#if info.text.length > 0}
-                  <div class="text-xl font-bold text-primary-light w-56">
+                  <div
+                    class="text-xl font-bold text-primary-light w-auto pr-16"
+                  >
                     <p>{i + 1}.</p>
                   </div>
                   <div>
                     <p
-                      class="w-620 text-lg text-on-background-variant mt-16 px-8"
+                      class="xl:w-520 md:w-400 text-lg text-on-background-variant mt-16 px-8"
                     >
                       {info.text}
                     </p>
@@ -273,7 +275,14 @@
             {/if}
           </div>
           <div class="lg:w-50">
-            <video id="vid" loop width="820" autoplay="autoplay" muted>
+            <video
+              id="vid"
+              loop
+              width="920"
+              height="518"
+              autoplay="autoplay"
+              muted
+            >
               <source
                 src="/assets/videos/scene-{i + 1}.webm"
                 type="video/webm"
@@ -284,7 +293,7 @@
       </div>
       {#if item["extra-information"].length > 0}
         <div
-          class="w-full text-center font-bold text-xl gradient-text-extra-light pt-120 py-32 px-148"
+          class="w-full text-center font-bold text-xl gradient-text-extra-light py-32 px-148"
         >
           <h1>{item["extra-information"][0].text}</h1>
         </div>

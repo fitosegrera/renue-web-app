@@ -22,7 +22,7 @@
       <div class="flex items-center space-x-24 h-auto">
         <div
           id="vertical-line"
-          class="sm:w-20 md:w-5 xl:w-2 lg:h-292 md:h-240 sm:h-360 gradient-blue-to-green-light-diagonal"
+          class="sm:w-20 md:w-5 xl:w-2 lg:h-292 md:h-240 sm:h-360 bg-primary-main"
         />
         <div>
           <div>

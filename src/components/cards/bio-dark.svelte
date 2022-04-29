@@ -70,10 +70,10 @@
     id="card-wrapper"
     class="w-full h-full gradient-bg-secondary-main rounded-lg"
   >
-    <div
+    <!-- <div
       id="horizontal-spacer"
       class="w-full h-24 gradient-blue-to-green-light-diagonal"
-    />
+    /> -->
 
     <Motion
       whileHover={{ scale: 1.1, transition: { duration: 0.5 } }}

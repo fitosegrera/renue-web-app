@@ -72,7 +72,7 @@
       </div>
     {/if}
   {/await}
-  <div class="grad-line w-full h-6 gradient-blue-to-green-light-diagonal" />
+  <div class="grad-line w-full h-6 bg-primary-main" />
 </div>
 
 <style>

@@ -16,7 +16,7 @@
       class="w-full h-64 rounded-md px-16 bg-secondary-variant text-md"
       required
     />
-    <div class="grad-line w-full h-6 gradient-blue-to-green-light-diagonal" />
+    <div class="grad-line w-full h-6 bg-primary-main" />
   </div>
 </div>
 

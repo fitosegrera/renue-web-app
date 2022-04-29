@@ -37,7 +37,7 @@
             </div>
           {/if}
           <div class="w-full sm:h-auto lg:h-120 sm:py-16 md:py-0 sm:leading-lg">
-            <h1 class="gradient-text-light sm:text-2lg md:text-2lg">
+            <h1 class="text-primary-light sm:text-2lg md:text-2lg">
               {item.headline[0].text}
             </h1>
           </div>

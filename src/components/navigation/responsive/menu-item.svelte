@@ -61,7 +61,8 @@
   }
 
   .underline-object {
-    background: linear-gradient(to right, #3fc4e5, #c5e87b);
+    /* background: linear-gradient(to right, #3fc4e5, #c5e87b); */
+    background: #c5e87b;
   }
 
   .underline-wrapper {

@@ -31,7 +31,7 @@
           <span class="gradient-text-dark px-8">
             {contents.headline.substring(0, contents.spans[0].start)}
           </span>
-          <span class="gradient-text-dark-variant px-8 italic">
+          <span class="text-primary-main px-8 italic">
             {contents.headline.substring(
               contents.spans[0].start,
               contents.spans[0].end
@@ -43,7 +43,7 @@
               contents.spans[1].start
             )}
           </span>
-          <span class="gradient-text-dark-variant px-8 italic">
+          <span class="text-primary-main px-8 italic">
             {contents.headline.substring(
               contents.spans[1].start,
               contents.spans[1].end
@@ -55,7 +55,7 @@
               contents.spans[2].start
             )}
           </span>
-          <span class="gradient-text-dark-variant px-8 italic">
+          <span class="text-primary-main px-8 italic">
             {contents.headline.substring(
               contents.spans[2].start,
               contents.spans[2].end
