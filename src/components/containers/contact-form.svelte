@@ -6,16 +6,16 @@
   export let background;
 
   onMount(async () => {
-    let bg = document.getElementById("main-container");
+    let bg = document.getElementById("bg-contact");
     bg.style.backgroundImage = "url(" + background + ")";
     bg.style.backgroundRepeat = "no-repeat";
     bg.style.backgroundSize = "cover";
   });
 </script>
 
-<main id="main-container" class="w-full bg-transparent lg:py-168 sm:py-120">
+<div id="bg-contact" class="w-full bg-transparent lg:py-168 sm:py-120">
   <slot />
-</main>
+</div>
 
 <style>
   * {

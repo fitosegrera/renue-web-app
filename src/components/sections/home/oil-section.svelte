@@ -71,7 +71,7 @@
       </div>
     </div>
   {:else}
-    <div class="w-auto h-auto grid grid-cols-2 xl:mx-72 md:mx-72 my-96">
+    <div class="w-auto h-auto grid grid-cols-2 xl:mx-72 md:mx-72 mb-48">
       <div id="video-container">
         <video id="vid" loop width="1200" autoplay="autoplay" muted>
           <source src="/assets/videos/scene-1.webm" type="video/webm" />

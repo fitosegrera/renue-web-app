@@ -32,12 +32,15 @@
 
   const rotateRight = (e) => {
     const transitioningImage = slides[0];
-    document.getElementById(transitioningImage.id).style.opacity = 0;
-    slides = [...slides.slice(1, slides.length), slides[0]];
-    setTimeout(
-      () => (document.getElementById(transitioningImage.id).style.opacity = 1),
-      transition_speed
-    );
+    if (transitioningImage.id !== null) {
+      document.getElementById(transitioningImage.id).style.opacity = 0;
+      slides = [...slides.slice(1, slides.length), slides[0]];
+      setTimeout(
+        () =>
+          (document.getElementById(transitioningImage.id).style.opacity = 1),
+        transition_speed
+      );
+    }
   };
 
   const switchView = (e) => {
@@ -55,7 +58,7 @@
       mobileView = false;
     }
 
-    console.log(innerWidth, mobileView);
+    //console.log(innerWidth, mobileView);
 
     setInterval(() => {
       rotateRight();
@@ -78,6 +81,7 @@
         animate:flip={{ duration: transition_speed }}
         class="grid lg:grid-cols-2 lg:grid-rows-1 sm:grid-rows-2 sm:grid-cols-1 lg:gap-48 items-center min-w-full h-auto"
       >
+        <!-- {console.log(slide.button_url)} -->
         {#if mobileView}
           <div class="mx-auto px-16">
             <img
@@ -115,7 +119,7 @@
               <p>{slide.paragraph}</p>
             </div>
             <div class="mt-48">
-              <Button label="Learn More" />
+              <Button label="Learn More" url={slide.button_url} />
             </div>
           </div>
         {/if}
