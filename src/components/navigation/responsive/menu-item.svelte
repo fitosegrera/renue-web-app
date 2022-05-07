@@ -1,9 +1,16 @@
 <script>
   //LIBS
   import { scale } from "svelte/transition";
+  import { createEventDispatcher } from "svelte";
 
   //PROPS
   export let label, url, id, mobile_view;
+
+  const dispatch = createEventDispatcher();
+
+  const click = () => {
+    dispatch("click", true);
+  };
 
   $: visible = false;
 
@@ -32,6 +39,7 @@
     </a>
   </div>
   <!-- <div class="w-75 h-8" /> -->
+
   {#if visible}
     {#if mobile_view}
       <div class="" />

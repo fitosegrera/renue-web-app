@@ -37,6 +37,10 @@
     );
     mediaListener.addListener(switchView);
   });
+
+  const click = (e) => {
+    console.log("EVENT DISPATCHER", e);
+  };
 </script>
 
 <svelte:window bind:innerWidth />
@@ -57,7 +61,7 @@
           {/if}
         </a>
       </div>
-      <Hamburger bind:open={sb} />
+      <Hamburger bind:open={sb} on:click={click} />
     </nav>
   {:else}
     <nav
