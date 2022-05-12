@@ -45,7 +45,7 @@
         //console.log(result.data.body);
         await result.data.body.forEach(async (section, j) => {
           if (section.slice_type === "hero-section") {
-            //console.log(section.primary);
+            console.log(section);
             hero_data.imageUrl = section.primary.image.url;
             hero_data.headline = section.primary.headline[0].text;
             hero_data.paragraph = section.primary.paragraph[0].text;
@@ -100,7 +100,7 @@
 </script>
 
 <svelte:head>
-  <title>RENUE Gallery</title>
+  <title>RENUE Insights</title>
 </svelte:head>
 
 {#await heroData}

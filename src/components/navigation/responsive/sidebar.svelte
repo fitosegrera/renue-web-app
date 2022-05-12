@@ -1,11 +1,16 @@
 <script>
   //COMPONENTS
   import MenuItem from "./menu-item.svelte";
-  import SpacerLine from "../../containers/spacer-line-alpha.svelte";
+  import SpacerLine from "../../containers/spacer-line-primary-thin.svelte";
 
   //PROPS
-  export let open = false;
+  export let open;
   export let navbar_data;
+
+  const toggleSidebar = (e) => {
+    //console.log("EVENT DISPATCHER", e);
+    open = !open;
+  };
 </script>
 
 {#await navbar_data then navBarItems}
@@ -24,10 +29,13 @@
             {/if}
           </a>
         </div>
-        <div id="mobile-list" class="w-full h-full py-72 px-32">
+        <div id="mobile-list" class="w-full h-full pt-96 px-32">
           {#each navBarItems["menu-item"] as item}
-            <div class="w-full h-auto text-2xl text-on-background-variant">
+            <div
+              class="w-full h-120 text-2xl leading-loose text-on-background-variant"
+            >
               <MenuItem
+                on:openSidebar={toggleSidebar}
                 label={item.label}
                 url={item.url}
                 id={item.label}

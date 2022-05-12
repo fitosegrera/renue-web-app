@@ -33,7 +33,7 @@
       mobileView = false;
     }
 
-    console.log(innerWidth, mobileView);
+    //console.log(innerWidth, mobileView);
 
     const mediaListener = window.matchMedia(
       "(max-width: " + $break_point + "px)"

@@ -48,14 +48,14 @@
         result.data.body.forEach((section, j) => {
           // console.log(section);
           if (section.slice_type === "hero-section") {
-            console.log(section);
+            //console.log(section);
             hero_data.imageUrl = section.primary.image.url;
             hero_data.headline = section.primary.headline[0].text;
             hero_data.paragraph = section.primary.paragraph[0].text;
           }
 
           if (section.slice_type === "section-1") {
-            console.log(section.primary.image.url);
+            //console.log(section.primary.image.url);
             section_1_data.imageUrl = section.primary.image.url;
             section_1_data.imageAlt = section.primary.image.alt;
             section_1_data.paragraph = section.primary.paragraph[0].text;
@@ -63,7 +63,7 @@
 
           if (section.slice_type === "section-2") {
             section.items.forEach((item, i) => {
-              console.log("section 2:", item);
+              //console.log("section 2:", item);
               let tmp = {};
               if (i == 0) {
                 tmp.visible = true;
@@ -80,7 +80,7 @@
           }
 
           if (section.slice_type === "section-3") {
-            console.log("section-3", section.primary.headline[0]);
+            //console.log("section-3", section.primary.headline[0]);
             section_3_title = section.primary.headline[0].text;
             section_3_spans = section.primary.headline[0].spans;
           }

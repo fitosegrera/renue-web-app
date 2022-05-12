@@ -18,7 +18,7 @@
   import "../layout.css";
 
   $: innerHeight = 0;
-  let open;
+  let open = false;
 
   let navBarItems = {};
   let socialItems = {};

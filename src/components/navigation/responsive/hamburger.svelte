@@ -1,12 +1,14 @@
 <script>
+  import { mobile_menu } from "../../../stores/renuestore";
   export let open = false;
+
+  const handleClick = () => {
+    open = !open;
+    $mobile_menu = open;
+  };
 </script>
 
-<button
-  class="w-auto cursor-pointer"
-  class:open
-  on:click={() => (open = !open)}
->
+<button class="w-auto cursor-pointer" class:open on:click={handleClick}>
   <svg class="text-secondary-dark" width="48" height="24">
     <line id="top" x1="0" y1="2" x2="48" y2="2" />
     <line id="middle" x1="0" y1="12" x2="48" y2="12" />

@@ -7,7 +7,7 @@
 
   //PROPS
   export let contents;
-  console.log(contents);
+  //console.log(contents);
 
   let mobileView = false;
   let innerWidth;
@@ -27,7 +27,7 @@
       mobileView = false;
     }
 
-    console.log(innerWidth, mobileView);
+    //console.log(innerWidth, mobileView);
 
     const mediaListener = window.matchMedia(
       "(max-width: " + $break_point + "px)"

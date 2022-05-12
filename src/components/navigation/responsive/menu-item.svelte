@@ -3,13 +3,19 @@
   import { scale } from "svelte/transition";
   import { createEventDispatcher } from "svelte";
 
+  //STORES
+  import { mobile_menu } from "../../../stores/renuestore";
+
   //PROPS
-  export let label, url, id, mobile_view;
+  export let label, url, id;
 
   const dispatch = createEventDispatcher();
 
-  const click = () => {
-    dispatch("click", true);
+  const handleClick = () => {
+    console.log("mobile_menu", $mobile_menu);
+    $mobile_menu = !$mobile_menu;
+    console.log("mobile_menu", $mobile_menu);
+    dispatch("openSidebar", { $mobile_menu });
   };
 
   $: visible = false;
@@ -34,14 +40,14 @@
   on:mouseleave={handleMouseleave}
 >
   <div id="text-wrapper" class="">
-    <a href={url}>
+    <a href={url} on:click={handleClick}>
       {label}
     </a>
   </div>
   <!-- <div class="w-75 h-8" /> -->
 
   {#if visible}
-    {#if mobile_view}
+    {#if $mobile_menu}
       <div class="" />
     {:else}
       <div class="flex items-center justify-center">

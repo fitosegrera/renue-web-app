@@ -7,6 +7,7 @@ export const cms_url = readable(repoUrl);
 export const break_point = readable(breakPointWidth);
 export const navbar_data = writable({});
 export const footer_data = writable({});
+export const mobile_menu = writable(false);
 
 export const firebase_config = readable({
   apiKey: "AIzaSyCSouMEoIw7vv05-t2LESvadQ2ae0oZLDw",

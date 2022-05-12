@@ -10,11 +10,15 @@
   import { break_point } from "../../../stores/renuestore";
 
   // PROPS
-  export let sb = false;
+  export let sb;
   export let navbar_data;
 
-  let mobileView = false;
+  let mobileView = sb;
   let innerWidth;
+
+  const toggleSidebar = (e) => {
+    console.log("EVENT DISPATCHER", e);
+  };
 
   const switchView = (e) => {
     if (innerWidth <= $break_point) {
@@ -37,10 +41,6 @@
     );
     mediaListener.addListener(switchView);
   });
-
-  const click = (e) => {
-    console.log("EVENT DISPATCHER", e);
-  };
 </script>
 
 <svelte:window bind:innerWidth />
@@ -61,7 +61,7 @@
           {/if}
         </a>
       </div>
-      <Hamburger bind:open={sb} on:click={click} />
+      <Hamburger bind:open={sb} />
     </nav>
   {:else}
     <nav
