@@ -8,7 +8,6 @@
   export let navbar_data;
 
   const toggleSidebar = (e) => {
-    //console.log("EVENT DISPATCHER", e);
     open = !open;
   };
 </script>
